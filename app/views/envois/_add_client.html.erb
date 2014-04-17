@@ -1,0 +1,18 @@
+<h1>Ajouter des clients à cet envoi</h1>
+<div id="search_form">
+	<%=form_tag url_for(:controller => :envois, :action => :add_client), :method => :post, :remote => true, :id => "search_add_client" do %>
+		<%=hidden_field_tag "existing_client", params[:existing_client] %>
+		<%=hidden_field_tag "attribute", params[:attribute] %>
+		<%=text_field_tag "search" %>
+		<%=link_to "Rechercher", "#", :class => "button_link" %>
+		<%=image_tag "loader.gif", :id => "loading_refresh" %>
+	<% end %>
+</div>
+<div class="edit_event">
+	<div id="results">
+		<%=render "envois/clients" %>
+	</div>
+	<p class="footer">
+		<%=submit_tag "Ajouter", :id => "submit_add_clients" %> ou <%=link_to "Annuler", "#", "data-close" => "add_client" %>
+	</p>
+</div>

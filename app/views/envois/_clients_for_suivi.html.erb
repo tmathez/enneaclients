@@ -1,0 +1,15 @@
+<% for client in @clients %>
+	<% last_suivi = client.last_suivi(@mailing.id) %>
+	<tr id="client_<%=client.id.to_s %>" title="<%=last_suivi.etat.description %>" class="suivi etat_<%=last_suivi.etat.id.to_s%>">
+		<td><%=image_tag(last_suivi.etat.image_url) %></td>
+		<td><%=link_to client.nom, client_path(client) %></td>
+		<td><%=e client.contact %></td>
+		<td><%=e client.npa %></td>
+		<td><%=e client.lieu %></td>
+		<td><%=e client.tel %></td>
+		<td><%=e last_suivi.date_suivi,true,"" %></td>
+		<td><%=link_to image_tag("mini_add.png"), new_mailing_suivi_path(@mailing, :envoi_id => @envoi.id, :client_id => client.id), 
+					   :remote => true, :class => "hide_when_done#{' hidden' if @envoi.termine }" %>
+		</td>
+	</tr>
+<% end %>

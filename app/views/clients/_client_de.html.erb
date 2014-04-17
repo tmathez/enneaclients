@@ -1,0 +1,16 @@
+<tr class="<%=client.no_support ? 'client_no_support' : 'client' %><%=client.inactif ? ' inactif' : '' %>" title="<%=client.no_support ? 'Supports bloqu&eacute;s'.html_safe : '' %>">
+	<td style="text-align:center"><%=h client.numero_enneasoft %></td>
+	<td>
+		<%= link_to client.nom, client_path(client), :title => client.nom %>
+	</td>
+	<td style="text-align:center"><%=client.serial.to_s %></td>
+	<td style="text-align:center"><%=client.version_epdf.to_f.to_s %></td>
+	<td style="text-align:center"><%=client.nb_licences.to_s %></td>
+	<td style="text-align:center"><%=client.licences.length %></td>
+	<td style="text-align:center">
+		<%= link_to '<img src="/images/edit.png" title="Modifier" />'.html_safe, edit_client_path(client) %>
+	</td>
+	<td style="text-align:center;border-width:0">
+		<%= link_to '<img src="/images/delete.gif" title="Supprimer" />'.html_safe, client, :confirm => 'Êtes-vous sûr?', :method => :delete %>
+	</td>
+</tr>

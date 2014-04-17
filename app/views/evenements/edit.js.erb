@@ -1,0 +1,15 @@
+<% if params[:resolu] == "true" %>
+	$("#overlay").css('display','block');
+	$("#solution").css('display','block');
+	$("#solution").html('<%=escape_javascript(render :partial => "evenements/solution", :locals => { :evenement => @evenement } ) %>');
+	initialize_observers();
+<% else %>
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').parent().parent().css('display','none');
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').attr('id','');
+	$('#pending_evenements').prepend("<%=escape_javascript(render(:partial => @evenement))%>");
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').parent().parent().effect('highlight', {}, 3000);
+	// On recalcule les totaux facturés et à facturer
+	replaceCounts($("#count_pending"),$("#count_solved"));
+	
+	initialize_observers();
+<% end %>

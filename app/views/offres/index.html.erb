@@ -1,0 +1,21 @@
+<h1 style="width:50%;float:left">Offres</h1>
+<h2 style="width:50%;float:left;text-align:right"><%=link_to "Modifier les textes standards", { :action => "textes" }, :style=>"margin-top:-5px"  %> | <%=link_to "Nouvelle offre", new_offre_path, :style=>"margin-top:-5px"  %></h2>
+
+<table id="liste_offres">
+  <thead>
+  	<tr style="color:#AAA">
+	    <th style="width:8%;text-align:center">Date</th>
+	    <th style="width:20%">Client</th>
+	    <th style="width:18%">Personne de r&eacute;f&eacute;rence</th>
+	    <th style="width:14%">Lieu</th>
+	    <th style="width:20%">Titre</th>
+	    <th style="width:8%;text-align:center">Montant TTC</th>
+	    <th style="width:2%;text-align:center"></th>
+		<th style="width:2%;text-align:center"></th>
+		<th style="width:2%;text-align:center"></th>
+  	</tr>
+  </thead>
+  <tbody id="offres">
+	<%=render :partial => @offres %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<%=link_to_unless(@page == "infos", '<li>INFORMATIONS</li>'.html_safe, client_path(@client, :page => "infos"), :remote => true) do %>
+	<li class="selected">INFORMATIONS</li>
+<% end %>
+<%=link_to_unless(@page == "suivis", '<li>SUIVIS</li>'.html_safe, client_path(@client, :page => "suivis"), :remote => true) do %>
+	<li class="selected">SUIVIS</li>
+<% end %>
+<%=link_to_unless(@page == "offres", '<li>OFFRES</li>'.html_safe, client_path(@client, :page => "offres"), :remote => true) do %>
+	<li class="selected">OFFRES</li>
+<% end %>
+<%=link_to_unless(@page == "evenements", '<li>EVENEMENTS</li>'.html_safe, client_path(@client, :page => "evenements"), :remote => true) do %>
+	<li class="selected">EVENEMENTS</li>
+<% end %>

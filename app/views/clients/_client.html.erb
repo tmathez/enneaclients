@@ -1,0 +1,20 @@
+<tr class="<%=client.no_support ? 'client_no_support' : 'client' %><%=client.inactif ? ' inactif' : '' %>" title="<%=client.no_support ? 'Supports bloqu&eacute;s'.html_safe : '' %>">
+	<td style="text-align:center;<%='background-color:#DCEAF4;color:#427396' if client.langue == 'de' %>"><%=h (client.langue == 'de' ? "Allemand" : client.numero) %></td>
+	<td style="text-align:center"><%=h client.numero_enneasoft %></td>
+	<td>
+		<%=image_tag "warning.png", :alt => client.nom if client.no_support %>
+		<%=image_tag "asp.png", :alt => client.nom if client.asp_client %>
+		<%= link_to client.nom, client_path(client), :title => client.nom %>
+	</td>
+	<td style="text-align:center" alt="<%=client.sorba %>"><%=imgBool(client.sorba) %></td>
+	<td style="text-align:center" alt="<%=client.enneasoft %>"><%=imgBool(client.enneasoft) %></td>
+	<td style="text-align:center" alt="<%=client.sorba_programme %>"><%=imgBool(client.sorba_programme) %></td>
+	<td style="text-align:center" alt="<%=client.enneascanning %>"><%=imgBool(client.enneascanning)%></td>
+	<td style="text-align:center" alt="<%=client.autres_produits %>" title="<%=client.autre %>"><%=imgBool(client.autres_produits) %></td>
+	<td style="text-align:center">
+		<%= link_to '<img src="/images/edit.png" title="Modifier" />'.html_safe, edit_client_path(client) %>
+	</td>
+	<td style="text-align:center;border-width:0">
+		<%= link_to '<img src="/images/delete.gif" title="Supprimer" />'.html_safe, client, :confirm => 'Êtes-vous sûr?', :method => :delete %>
+	</td>
+</tr>

@@ -1,0 +1,50 @@
+<% if @evenement.errors.any? %>  
+	<div id="errorExplanation">  
+		<strong>Attention :</strong> tous champs obligatoires n'ont pas été remplis.
+	</div>  
+<% end %>
+<div class="general">
+   <p class="date_evenement">
+    <%= f.label :date_evenement, "Date" %></br>
+    <%= date_field "evenement", "date_evenement", f.object.date_evenement.nil? ? DateTime.now: f.object.date_evenement %>
+  </p>
+  <p class="date_evenement heure">
+    <%= f.label :heure_evenement, "Heure" %></br>
+    <%= time_field "evenement", "heure_evenement", f.object.heure_evenement.nil? ? DateTime.now : f.object.heure_evenement %>
+  </p>
+  <p class="responsable">
+    <%= f.label :responsable_id, "Responsable" %><br/>
+    <%= f.select :responsable_id, Responsable.where(inactive: false).order(:prenom).collect { |r| [ r.prenom, r.id] }, :prompt => "Choisir" %>
+  </p>
+  <p class="nom_client">
+    <%= f.label :client_id, "Client" %></br>
+    <%= f.select :client_id, Client.order("nom").collect { |c| [c.nom, c.id] }, :prompt => "Choisir" %>
+    <%= select_tag "telephone", options_from_collection_for_select(Client.order("nom"), "id", "tel"), { :style => "display:none" } %>
+    <%= select_tag "remarques", options_from_collection_for_select(Client.order("nom"), "id", "remarques"), { :style => "display:none" } %>
+    <%= select_tag "no_support", options_from_collection_for_select(Client.order("nom"), "id", "blocked_support"), { :style => "display:none" } %>
+  </p>
+  <p class="tel">
+    <%= f.label :telephone, "Téléphone" %></br>
+    <%= f.text_field :telephone %>
+  </p>
+  <p class="tag">
+  	<%= f.label :tag_id, "Concerne" %></br>
+  	<%=f.select :tag_id, Tag.order("name").collect { |t| [t.name, t.id] }, :include_blank => true %>
+  </p>
+</div>
+<div class="remarques">
+  <p>
+    <%= f.label :description, "Description" %><br/>
+    <%= f.text_area :description %>
+  </p>
+  <%=simple_format(@remarques.to_s, :id => "client_remarques", :style => "margin-top:5px", :class => "client_remarques redcloth_me #{'hidden' if @remarques.blank?}" ) %>
+  <p class="<%=f.object.resolu ? 'solved' : 'unsolved' %>">
+  	<%= f.check_box :resolu %> <%= f.label :resolu, "Résolu", :id => "label_resolu" %> 
+  	<%= f.label :solution, "avec la solution suivante :", :id => "label_solution" %><br/>
+  	<%= f.text_area :solution %>
+  	<span id="facturation"><%= f.check_box :facturation, :value => 1 %> <%= f.label :facturation, "&Agrave; facturer".html_safe %>
+  	<span id="a_facturer" class="<%=@evenement.facturation == 0 || @evenement.facturation.nil? ? 'pas_a_facturer' : 'a_facturer' %>">
+  	<%= f.text_field :heures %><span class="inputlike">heures</span> &agrave; 
+  	<%=f.text_field :tarif, :value => f.object.tarif.nil? || f.object.tarif == 0 ? "180.00" : f.object.tarif %><span class="inputlike">Fr.</span></span></span>
+  </p>
+</div>

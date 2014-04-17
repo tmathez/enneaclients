@@ -1,0 +1,15 @@
+<h1>Ajouter un &eacute;v&eacute;nement</h1>
+<div class="no_support_for_you hidden">
+	<strong>Attention :</strong> <span></span>
+</div>
+
+
+<div class="edit_event">
+<%=form_for @evenement, :builder => ApplicationHelper::CustomFormBuilder do |f| %>
+  <%=render "form", :f => f %>
+  <hr/>
+  <p class="footer">
+    <%= f.submit 'Ajouter' %> ou <%=link_to "Annuler", params[:client_id].nil? ? evenements_path : client_path(params[:client_id]) %>
+  </p>
+<% end %>
+</div>

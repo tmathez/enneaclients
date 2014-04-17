@@ -1,0 +1,12 @@
+<h1>Modifier un &eacute;v&eacute;nement</h1>
+<div class="no_support_for_you <%="hidden" if !@evenement.client.no_support %>"><strong>Attention :</strong> les supports pour ce client sont actuellements bloqués.</div>
+
+<div class="edit_event">
+<%= form_for @evenement, :builder => ApplicationHelper::CustomFormBuilder do |f| %>
+  <%=render "form", :f => f %>
+  <hr/>
+  <p class="footer">
+    <%= f.submit 'Modifier' %> ou <%=link_to "Annuler", params[:client_id].nil? ? evenements_path : client_path(params[:client_id]) %>
+  </p>
+<% end %>
+</div>

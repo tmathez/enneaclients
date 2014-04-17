@@ -1,0 +1,58 @@
+<table id="list_evenements">
+	<thead>
+		<tr style="height:0px">
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:20%;font-weight:bold;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:61%;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+		</tr>
+		<tr style="vertical-align:top">
+			<th colspan="8" style="border:0">
+				<h1 style="margin:0">
+					Facturation du <%=@du.strftime("%d.%m.%Y") %> au <%=@au.strftime("%d.%m.%Y") %> 
+					<span class="light">pour <%=@responsable.to_s %></span></h1>
+			</th>
+		</tr>
+		<tr>
+			<th style="width:7%;font-weight:bold">Etat</th>
+			<th style="width:15%;font-weight:bold">Client</th>
+			<th style="width:7%;text-align:center">Date</th>
+			<th style="width:59%">Description</th>
+			<th style="width:7%;text-align:center">Responsable</th>
+			<th style="width:7%;text-align:right">Heures</th>
+			<th style="width:7%;text-align:right">Prix</th>
+			<th style="width:7%;text-align:right">Total</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% 
+		i = 0 
+		total = 0
+	%>
+	<% for evenement in @evenements %>
+			<tr style="<%=i.modulo(2) > 0 ? "background:#F5F5F5" : "" %>">
+				<td style="font-weight:bold;vertical-align:top"><%=evenement.facturation == 1 ? "&Agrave; facturer".html_safe : "Factur&eacute;e".html_safe  %></td>
+				<td style="font-weight:bold;vertical-align:top"><%=evenement.client.nil? ? "" : evenement.client.nom %></td>
+				<td style="text-align:center;vertical-align:top"><%=evenement.date_evenement.strftime("%d.%m.%Y") %></td>
+				<td style="vertical-align:top;white-space:pre-wrap"><%=RedCloth.new(evenement.solution).to_html.html_safe %></td>
+				<td style="text-align:center;vertical-align:top"><%=evenement.responsable.prenom %></td>
+				<td style="text-align:right;vertical-align:top;padding-right:5px"><%=format_number(evenement.heures,"'") %></td>
+				<td style="text-align:right;vertical-align:top;padding-right:5px"><%=format_number(evenement.tarif,"'") %></td>
+				<td style="border-right:0;text-align:right;vertical-align:top;padding-right:5px"><%=format_number(evenement.heures.to_f * evenement.tarif.to_f,"'") %></td>
+			</tr>
+			<% 
+				i += 1 
+				total += (evenement.heures.to_f * evenement.tarif.to_f)
+			%>
+	<% end %>
+		<tr>
+			<td colspan="8" style="border-right:0;text-align:right;vertical-align:top;font-weight:bold;font-size:1.2em;padding-right:5px">
+				CHF <%=format_number(total,"'") %>
+			</td>
+		</tr>
+	</tbody>
+</table>

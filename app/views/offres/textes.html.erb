@@ -1,0 +1,68 @@
+<h1>Modification des textes d'offres standards</h1>
+
+<div id="form_textes">
+	<h3>Modules</h3>
+	<div class="textes_elements">
+	<% for mod in @modules %>
+		<%=form_for mod, :remote => true do |f| %>
+		<div class="texte_module texte_element" id="edit_module_#{mod.id.to_s}">
+			<div>
+				<%=f.text_field :nom, :readonly => true, :style => "width:94%" %>
+				<input type="hidden" value="<%=f.object.nom.to_s %>" />
+			</div>
+			<div>
+				<%=f.text_area :description, :readonly => true %>
+				<span style="display:none"><%=f.object.description.to_s %></textarea>
+			</div>
+			<div>
+				<%=f.text_field :prix, :value => format_number(f.object.prix,""), :class => "numeric_field", :readonly => true %>
+				<input type="hidden" value="<%=format_number(f.object.prix,"") %>"/>
+			</div>
+			<div>
+				<%=link_to image_tag("edit.png"), "#", :class => "edit_texte_standard" %>
+				<%=link_to image_tag("cancel.png"), "#", :class => "cancel_texte_standard", :style => "display:none" %> &nbsp;
+				<%=link_to image_tag("save.png"), "#", :class => "save_texte_standard", :style => "display:none", :id => "#{params[:id].to_s}" %>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+	</div>
+	<hr/>
+	<h3>Services</h3>
+	<div class="textes_elements">
+	<% for serv in @services %>
+		<%=form_for serv, :remote => true do |f| %>
+		<div class="texte_service texte_element" id="edit_service_#{mod.id.to_s}">
+			<div>
+				<%=f.text_area :description, :readonly => true %>
+				<span style="display:none"><%=f.object.description.to_s %></textarea>
+			</div>
+			<div>
+				<%=f.text_field :prix_jour, :value => format_number(f.object.prix_jour,""), :class => "numeric_field", :readonly => true %>
+				<input type="hidden" value="<%=format_number(f.object.prix_jour,"") %>"/>
+			</div>
+			<div>
+				<%=link_to image_tag("edit.png"), "#", :class => "edit_texte_standard" %>
+				<%=link_to image_tag("cancel.png"), "#", :class => "cancel_texte_standard", :style => "display:none" %> &nbsp;
+				<%=link_to image_tag("save.png"), "#", :class => "save_texte_standard", :style => "display:none", :id => "#{params[:id].to_s}" %>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+	</div>
+	<hr/>
+	<h3>Textes standards</h3>
+	<div class="edit_textes_standards">
+		<div style="border:1px solid #77ADCE;background:#DAE7EF;padding:10px">
+			Modifier les textes standards pour l'entreprise <%=select :textes_standards_societe, :id, Societe.all.collect { |s| [s.nom, s.id] } %>
+			<button class="edit_textes_societe">Modifier</button>
+			<button class="save_textes_societe" style="display:none">Enregistrer</button>
+			<span style="display:none">ou <a class="cancel_textes_societe">Annuler</a></span>
+		</div>
+		<div id="texte_standard">
+			<%=render "textes_standards/edit", :textes_standard => TextesStandard.where(:societe_id => 1).first %>
+		</div>
+	</div>
+	
+	<hr/>
+</div>

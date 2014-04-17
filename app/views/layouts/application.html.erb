@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>enneaclients - <%=params[:controller].capitalize %></title>
+  <%= stylesheet_link_tag "main", :media => "screen,print" %>
+  <%= stylesheet_link_tag request.subdomain, :media => "screen,print" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js" %>
+  <%= javascript_include_tag "rails","jquery.autocomplete.min","jquery.tablesorter.min", :cache => "main" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "ata" %>
+</head>
+<body>
+
+<% if !((params[:controller] == "offres" && params[:action] == "new") || (params[:controller] == "offres" && params[:action] == "edit")) %>
+<div id="mainmenu">
+	<div id="menu">
+		<div id="menu_left">
+			enneaclients
+			<span><%=link_to_unless_current "Evénements", evenements_path %></span> 
+			<span><%=link_to_unless_current "Offres", offres_path %></span>
+			<span><%=link_to_unless_current "Facturation", facturation_evenements_path %></span>
+			<!--
+			<span><%=link_to_unless_current "Mailings", mailings_path %></span>
+			<span><%=link_to_unless_current "Prospection", prospects_path %></span>-->
+			<span><%=link_to_unless_current "Clients", clients_path %></span>
+		</div>
+		<%=form_tag "../evenements/search", :method => :get, :id => "evenements_search" do %>
+		<div id="menu_right">
+			<span></span><%= text_field_tag :search, nil, :placeholder => "Rechercher un événement" %>
+		</div>
+		<% end %>
+	</div>
+</div>
+<% end %>
+<p style="color: green"><%= flash[:notice] %></p>
+<div id="main" <%=yield :align %>>
+	<%= yield %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<table id="list_evenements">
+	<thead>
+		<tr style="height:0px">
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:20%;font-weight:bold;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+			<th style="width:61%;border:0;height:0"></th>
+			<th style="width:7%;text-align:center;border:0;height:0"></th>
+		</tr>
+		<tr style="vertical-align:top">
+			<th colspan="5" style="border:0">
+				<h1 style="margin:0">
+					&Eacute;venements <%=params[:statut] == "false" ? "en attente" : (params[:statut] == "true" ? "résolus" : "") %> 
+					du <%=@du.strftime("%d.%m.%Y") %> au <%=@au.strftime("%d.%m.%Y") %> 
+					<span class="light">pour <%=@responsable.to_s %> <%=@client%> 
+						<% if !params[:tag_id].blank? %>
+							concernant : <%=Tag.find(params[:tag_id]).name.to_s %>
+						<% end %>
+					</span></h1>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="5" style="border:0">
+				<h3 class="evenements_count">
+					Evenements pour cette p&eacute;riode : <%=@evenements.length %> / 
+					Moyenne par jour : <%=((@evenements.length.to_f / business_days_between(@du,@au).to_f)*100).round.to_f / 100 %>
+				</h3>
+			</th>
+		</tr>
+		<tr>
+			<th style="width:7%;font-weight:bold">Etat</th>
+			<th style="width:20%;font-weight:bold">Client</th>
+			<th style="width:7%;text-align:center">Date</th>
+			<th style="width:59%">Description</th>
+			<th style="width:7%;text-align:center">Responsable</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% i = 0 %>
+	<% for evenement in @evenements %>
+			<tr style="<%=i.modulo(2) > 0 ? "background:#F5F5F5" : "" %>">
+				<td style="font-weight:bold;vertical-align:top"><%=evenement.resolu ? "R&eacute;solu".html_safe : "En attente" %></td>
+				<td style="font-weight:bold;vertical-align:top"><%=evenement.client.nil? ? "" : evenement.client.nom %></td>
+				<td style="text-align:center;vertical-align:top"><%=evenement.date_evenement.strftime("%d.%m.%Y") %></td>
+				<td style="vertical-align:top;white-space:pre-wrap"><%=RedCloth.new(evenement.description).to_html.html_safe %><% if params[:solution] and evenement.resolu %><hr style="border-color:#AAA;border-width:1px 0 0 0;border-style:dotted;margin-left:-3px"/><span style='color:green'><%=RedCloth.new(evenement.solution).to_html.html_safe %></span><% end %></td>
+				<td style="border-right:0;text-align:center;vertical-align:top"><%=evenement.responsable.prenom %></td>
+			</tr>
+			<% i += 1 %>
+	<% end %>
+	</tbody>
+</table>

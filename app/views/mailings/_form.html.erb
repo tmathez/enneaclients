@@ -1,0 +1,23 @@
+<div class="edit_mailing">
+	<div id="mailing">
+	  <%=f.hidden_field :termine %>
+	  <p style="width:50%;float:left">
+	    <%= f.label :nom, "Description du mailing" %><br />
+	    <%= f.text_field :nom, :style => "width:97%" %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <%= f.label :type_mailing_id, "Type" %><br />
+	    <%= f.select :type_mailing_id, TypeMailing.all.collect { |t| [t.description, t.id] }, {}, { :style => "width:98%" } %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <%= f.label :interet_id, "Concerne" %><br />
+	    <%= f.select :interet_id, Interet.all.collect { |t| [t.description, t.id] }, {}, { :style => "width:98%" } %>
+	  </p>
+	</div>
+	<% if @mailing.new_record? %>
+		<h2><%=image_tag("mail.png") %> Premier envoi du mailing</h2>
+		<%=f.fields_for :envois do |e| %>
+			<%=render "envois/form", :e => e %>
+		<% end %>
+	<% end %>
+</div>

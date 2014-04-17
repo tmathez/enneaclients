@@ -1,0 +1,3 @@
+$(".input_filtre").val('<%=@filtre.html_safe.gsub("\"","") %>');
+$("#clients").html("<%=escape_javascript(render('envois/select_clients', :envoi => Mailing.new.envois.build, :attribute => params[:attribute])) %>");
+initialize_observers();

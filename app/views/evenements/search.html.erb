@@ -1,0 +1,6 @@
+<% if @solved.nil? && @pending.nil? %>
+	<h1>Votre recherche '<%=params[:search].to_s%>' n'a retourn&eacute;e aucun r&eacute;sultat</h1>
+<% else %>
+	<h1>Votre recherche '<%=params[:search].to_s%>' a retourn&eacute;e <%=(@solved.length+@pending.length).to_s%> résultat(s)</h1>
+	<%=render "evenements", :pending => @pending, :solved => @solved, :from_client => false, :solved_length => @solved.length %>
+<% end %>

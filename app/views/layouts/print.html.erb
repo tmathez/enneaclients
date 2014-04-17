@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>enneaclients - <%=params[:controller].capitalize %></title>
+  <style type="text/css">
+  	html { overflow-y:scroll; }
+	html, body { font-size:0.8em;font-family:"Arial";margin:0;padding:0; }
+	p, h1, h2, h3, h4 { margin:0;padding:0; }
+	table { table-layout:fixed;font-size:1.1em;border-collapse:collapse;width:100%; }
+	th { text-align:left;border-bottom:1px solid #CCC;height:25px; }
+	td { height:24px;border-right:1px dotted #CCC;padding-left:5px;text-overflow:visible;overflow:visible;
+		 white-space:normal;vertical-align:top;padding-bottom:5px;padding-top:5px;border-top:1px solid #CCC; }
+	.light { color:#AAA }
+	
+	#list_clients > thead > tr > th { border:0 }
+	#list_clients > thead > tr:nth-child(1) { height:0 }
+	#list_clients > thead > tr:nth-child(1) > th { height:0;font-size:01px }
+	#list_clients > thead > tr:nth-child(2) { border-bottom:1px solid #000 }
+	
+	#list_clients > thead > tr > th:nth-child(1) { width:22% }
+	#list_clients > thead > tr > th:nth-child(2) { width:20% }
+	#list_clients > thead > tr > th:nth-child(3) { width:28% }
+	
+	#list_clients > tbody > tr > td, #list_clients > tbody > tr { border:0;margin:0 }
+	#list_clients > tbody > tr { padding:0 }
+	#list_clients > tbody > tr > td { height:10px;padding:2px }
+	#list_clients > tbody > tr > td > span { color:#AAA }
+	#list_clients > tbody > tr > td:nth-child(1), #list_clients > tbody > tr > td:nth-child(2) { border-right:1px dotted #CCC;}
+	#list_clients > tbody > tr > td:nth-child(2), #list_clients > tbody > tr > td:nth-child(3) { padding-left:10px;}
+	.false { color:#FFF; }
+	.false > label { background-image:none }
+	.label_true { background:url(../images/check_print.png) left center no-repeat;padding-left:22px; }
+	.label_false { background:url(../images/uncheck_print.png) left center no-repeat;padding-left:22px; }
+	.label_false > span { display:none }
+
+	.evenements_count { -moz-border-radius:5px;background:#EEE;padding:5px;margin:5px 0 5px 0;text-align:center; }
+  </style>
+</head>
+<body>
+
+<div id="main">
+	<%= yield %>
+</div>
+
+</body>
+</html>

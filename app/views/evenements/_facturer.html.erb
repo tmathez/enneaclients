@@ -1,0 +1,32 @@
+<h1 style="border-bottom:1px dotted #CCC;padding-bottom:5px;margin-bottom:5px;height:25px">
+	<span style="color:#AAA"><%=h evenement.date_evenement.strftime("%d.%m.%Y") %></span> <%=h evenement.client.nom %>
+</h1>
+<div class="edit_event">
+  <%=form_for evenement, :builder => ApplicationHelper::CustomFormBuilder do |f| %>
+  <%=f.hidden_field :facturation, :value => 2 %>
+  <%=hidden_field_tag "facturation", 2 %>
+  <div class="remarques">
+  	  <p style="margin-bottom:15px">
+	  	<label>Description</label>
+	  	<div class="description"><%=RedCloth.new(evenement.description).to_html.html_safe %></div>
+	  </p>
+	  <p class="solved" style="height:140px">
+	  	<%= f.label :resolu, "Résolu", :id => "label_resolu" %> 
+  		<%=f.label :solution, "avec la solution suivante :", :id => "label_solution" %><br/>
+  		<div class="description" style="height:60px;width:96%;margin-top:-120px;margin-left:10px;background:#DCEFDC">
+  			<%=RedCloth.new(evenement.solution).to_html.html_safe %>
+		</div>
+		<span class="facturer">
+			<%= f.label :facturation %> 
+			<%= f.text_field :heures, :value => format_number(evenement.heures,"") %><span class="inputlike">h.</span>  &agrave; 
+			<%=f.text_field :tarif, :value => format_number(evenement.tarif,"") %><span class="inputlike">Fr.</span> &agrave; la date du
+			<%= date_field "evenement", "date_facturation", f.object.date_facturation.nil? ? Date.today : f.object.date_facturation %>
+		</span>
+	  </p>
+  </div>
+  <hr/>
+  <p class="footer">
+    <%= f.submit 'Facturer' %> ou <%=link_to "Annuler", facturation_evenements_path %>
+  </p>
+  <% end %>
+</div>

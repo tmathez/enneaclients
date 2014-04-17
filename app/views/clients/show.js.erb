@@ -1,0 +1,4 @@
+$("#loading_change_section").css('display','none');
+$(".show_client_menu").html("<%=escape_javascript(render('clients/show_menu')) %>");
+$("#<%=escape_javascript(params[:page]) %>").show().html("<%=escape_javascript(render('clients/client_'+params[:page])) %>");
+initialize_observers();

@@ -1,0 +1,14 @@
+<h1 style="width:50%;float:left">Clients</h1>
+<h2 style="width:50%;float:left;text-align:right"><%= link_to 'Nouveau client', new_client_path, :style=>"margin-top:-5px" %></h2>
+
+<p style="margin:40px auto 10px auto;width:90%;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;padding:10px 5% 10px 5%;font-size:1.2em;font-weight:bold">
+	Rechercher &nbsp;
+	<%=text_field_tag :search_client, nil, :style => "width:85%" %>
+</p>
+
+<div id="list_clients">
+	<%=render "clients" %>
+</div>
+
+<div id="overlay"></div>
+<div id="client" style="width:700px;border:3px solid #CCC;margin-top:20px;padding:15px"></div>

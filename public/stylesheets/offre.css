@@ -1,0 +1,85 @@
+html { overflow-y:scroll; }
+html, body { font-size:0.8em;font-family:"Arial";margin:0;padding:0; }
+p, h1, h2, h3, h4 { margin:0;padding:0; }
+table { table-layout:fixed;font-size:1.1em;border-collapse:collapse;width:100%; }
+th { text-align:left;border-bottom:1px solid #CCC;height:25px; }
+td { height:24px;border-right:1px dotted #CCC;padding-left:5px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap }
+.client:hover { background-color:#F2F6F9; }
+.client_no_support:hover { background-color:#DFC3C3; }
+input[type=text], textarea, select { border:1px solid; border-color:#7D7D7D #C4C4C4 #DDD #C2C2C2;padding:3px; }
+select { padding:2px; }
+label { font-size:1.1em;font-weight:bold; }
+h1 { margin-bottom:20px; }
+
+a, a:visited { color:#456E9F;text-decoration:none; }
+a:hover { color:#000;text-decoration:underline; }
+
+#main { max-width:1000px;width:95%;margin:0 auto 0 auto;padding:15px;background-color:#FFF; }
+
+/* OFFRES : IMPRESSION */
+
+#print_offre { font-size:1.4em; }
+#print_offre h3 { font-size:1.4em;margin-top:40px;padding-bottom:2px;margin-bottom:0;border-bottom:2px solid #000; }
+#print_offre input { width:100%;font-family:arial; }
+#print_offre textarea { height:20px;border:0;resize:none;background:transparent; }
+#print_offre hr { border:0;clear:both;margin:0; }
+
+#print_offre .print_offre_informations { height:100px;font-size:1em;padding-top:0px;margin-top:-10px; }
+#print_offre .print_offre_header div:nth-child(1), #print_offre .print_offre_informations div:nth-child(1) { float:left;width:80% }
+#print_offre .print_offre_header div:nth-child(2), #print_offre .print_offre_informations div:nth-child(2) { float:left;width:20% }
+#print_offre .print_offre_header div:nth-child(2) { margin-top:10px; }
+
+#print_offre .print_offre_elements { height:30px; }
+
+#print_offre .print_offre_element { border-bottom:1px solid #EEE;clear:both; }
+#print_offre .print_offre_element div { float:left;width:30%; padding:10px 0 10px 0; }
+
+#print_offre .print_offre_module div:nth-child(1) { font-weight:bold;color:#1D89C9; }
+#print_offre .print_offre_module div:nth-child(2) { width:50%; }
+#print_offre .print_offre_module div:nth-child(3) { width:5%;text-align:center; }
+#print_offre .print_offre_module div:nth-child(4) { width:15%;text-align:right; }
+
+#print_offre .print_offre_service div { padding:5px 0 5px 0; }
+#print_offre .print_offre_service div:nth-child(1) { width:80%; }
+#print_offre .print_offre_service div:nth-child(2) { width:5%;text-align:center; }
+#print_offre .print_offre_service div:nth-child(3) { width:15%;text-align:right; }
+
+#print_offre .print_offre_catalogue div { padding:5px 0 5px 0; }
+#print_offre .print_offre_catalogue div:nth-child(1) { width:80%; }
+#print_offre .print_offre_catalogue div:nth-child(2) { width:5%;text-align:center; }
+#print_offre .print_offre_catalogue div:nth-child(3) { width:15%;text-align:right; }
+
+#print_offre .print_total { font-size:1em;font-weight:bold;margin:10px 0 10px 0 }
+#print_offre .print_total div:nth-child(1) { width:80%;float:left }
+#print_offre .print_total div:nth-child(2) { width:5%;float:left;text-align:center; }
+#print_offre .print_total div:nth-child(3) { width:15%;float:left;text-align:right; }
+
+#print_offre .offre_recapitulation { font-size:1.2em;color:#0981C1;font-weight:bold; }
+#print_offre .offre_recapitulation .titre_recap { margin:10px 0 20px 0; }
+#print_offre .offre_recapitulation .total_final { border-bottom:1px solid #0981C1; }
+
+#print_offre .print_offre_mise_en_place div:nth-child(1) { height:18px;margin-top:10px}
+#print_offre .print_offre_mise_en_place div:nth-child(2) { margin-bottom:15px; }
+#print_offre .print_offre_mise_en_place div:nth-child(3) { margin-bottom:30px }
+#print_offre .print_offre_mise_en_place div:nth-child(4) { float:left;width:30%; }
+#print_offre .print_offre_mise_en_place div:nth-child(5) { float:left;width:35%; }
+#print_offre .print_offre_mise_en_place div:nth-child(6) { float:left;width:35%; }
+#print_offre .print_offre_mise_en_place div:nth-child(7) { margin:100px 0 30px 60% }
+
+#print_offre .licence { font-weight:normal; }
+#print_offre .rabais { padding:5px;background:#D3FFDE;height:20px;border:1px solid #8EDD8A;margin-bottom:0px; }
+#print_offre .total_final { border-bottom:2px solid #000;border-top:2px solid #000;height:30px;line-height:30px;font-size:1.2em; }
+
+/* OFFRES : HEADER */
+
+.header_offre { height:55px;padding:0 2%;font-size:1.5em;border-bottom:4px solid #EEE; }
+.header_offre div:nth-child(1) { float:left;width:50%;text-align:left }
+.header_offre div:nth-child(2) { float:left;width:50%;text-align:right }
+.header_offre div:nth-child(2) img { border:0 }
+
+/* OFFRES : FOOTER */
+
+.footer_offre { font-size:1.5em;border-top:1px solid #555;color:#888;padding:5px 2% 0 2%;margin-top:40px }
+.footer_offre div:nth-child(1) { float:left;width:25%;text-align:left }
+.footer_offre div:nth-child(2) { float:left;width:50%;text-align:center }
+.footer_offre div:nth-child(3) { float:left;width:25%;text-align:right }

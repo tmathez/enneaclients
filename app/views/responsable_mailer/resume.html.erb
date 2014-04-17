@@ -1,0 +1,2 @@
+<h2><%=@sujet %> - <%=@responsable.prenom %></h2>
+<div style="font-family:arial;font-size:0.8em"><%=RedCloth.new(@content).to_html.html_safe %></div>

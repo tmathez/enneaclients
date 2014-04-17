@@ -1,0 +1,5 @@
+$("#offre_client_nom").val("<%=escape_javascript(@client.nom) %>");
+$("#offre_client_adresse").val("<%=escape_javascript(@client.rue) %>");
+$("#offre_client_npa").val("<%=escape_javascript(@client.npa.to_s) %>");
+$("#offre_client_lieu").val("<%=escape_javascript(@client.lieu) %>");
+$("#offre_client_tel").val("<%=escape_javascript(@client.tel) %>");

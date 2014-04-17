@@ -1,0 +1,41 @@
+<div class="edit_mailing">
+	<%=hidden_field "envoi", "id", :value =>  (e.object.new_record? ? "0" : e.object.id.to_s) %>
+	<%=e.hidden_field :filtre, :class => "input_filtre" %>
+	<div id="envoi">
+	   <p style="width:25%;float:left">
+	    <%= e.label :date_envoi, "Date d'envoi" %><br />
+	    <%= e.text_field :date_envoi, :style => "width:95%" %>
+	  </p>
+	  <p style="width:75%;float:left">
+	    <%= e.label :nom, "Description de l'envoi" %><br />
+	    <%= e.text_field :nom, :style => "width:99%" %>
+	  </p> 
+	</div>
+	<% if e.object.has_suivi? %>
+		<div class="show_mailing"><%=render "envois/filtres_show" %></div>
+	<% else %>
+		<%=render "envois/filtres_edit" %>
+	<% end %>
+	<div id="clients">
+		<% if e.object.new_record? %>
+			<%=render "envois/select_clients", :envoi => Mailing.new.envois.build, :attribute => params[:attribute] %>
+		<% else %>
+			<%=render "select_clients", :envoi => e.object, :attribute => "envoi" if !e.object.new_record? %>
+		<% end %>
+	</div>
+</div>
+<div class="submit_mailing">
+	<div>
+		<% if !e.object.new_record? %>
+		<div class="delete">
+			<%=image_tag("delete.gif") %>
+			<%=link_to "Supprimer cet envoi", envoi_path(e.object), :method => :delete, 
+				        :confirm => "Êtes-vous sûr de vouloir supprimer cet envoi ? Tout suivi réalisé pour cet envoi sera également supprimer." %>
+		</div>
+		<% end %>
+		<%=e.submit (e.object.new_record? ? "Ajouter" : "Modifier") %> ou 
+		<%=link_to "Annuler", (e.object.new_record? ? mailings_path : mailing_envoi_path(e.object.mailing, e.object)) %>
+	</div>
+</div>
+<div id="overlay"></div>
+<div id="add_client"></div>

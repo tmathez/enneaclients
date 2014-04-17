@@ -1,0 +1,9 @@
+<div class="header_offre">
+	<div>
+		<img src="http://enneasoft.ch/templates/enneasoft/images/enneaclients/<%=offre.societe_id.to_s %>-logo.png" />
+	</div>
+	<div>
+		Offre du <%=format_date_texte(offre.date_offre) if !offre.date_offre.nil? %><br/>
+		Validit&eacute; de l'offre : <%=format_date_texte(offre.date_valide) if !offre.date_valide.nil? %>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<% if @client.offres.count > 0 %>
+	<h2 class="title_left">Offres faites à ce client</h2>
+	<h2 class="title_right"><%=link_to "Ajouter une offre", new_client_offre_path(@client) %></h2>
+	<table class="suivis_clients" style="clear:both">
+		<thead>
+			<tr>
+				<th style="width:3%">Etat</th>
+				<th style="width:17%">Date</th>
+				<th style="width:27%">Contact</th>
+				<th style="width:32%">Concerne</th>
+				<th style="width:15%" class="right">Montant TTC</th>
+				<th style="width:2%">&nbsp;</th>
+				<th style="width:2%">&nbsp;</th>
+				<th style="width:2%">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody id="clients_for_suivi">
+			<% for offre in @client.offres.order("accepte,date_offre DESC") %>
+				<tr id="<%=offre.id.to_s %>" class="suivi">
+					<td><%=image_tag("offre_accepte_#{offre.accepte.to_s}.png") %></td>
+					<td><%=e offre.date_offre,true,"" %></td>
+					<td><%=e offre.client_reference %></td>
+					<td><%=offre.texte_string  %></td>
+					<td class="right"><%=e offre.total_ttc %></td>
+					<td class="center">
+						<%=link_to image_tag("edit.png"), edit_client_offre_path(offre.client, offre) %>
+					</td>
+					<td class="center">
+						<%=link_to image_tag("print_mini.png"), client_offre_path(offre.client, offre, :format => :pdf) %>
+					</td>
+					<td class="center">
+						<%=link_to image_tag("delete.gif"), offre_path(offre), :method => :delete, :confirm => "Êtes-vous sûr  de vouloir supprimer cette offre ?" %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<div class="no_element">
+		Il n'existe encore aucune offre pour ce client<br/>
+		<%=link_to "Ajouter une première offre", new_client_offre_path(@client), :class => "add_first" %>
+	</div>
+<% end %>

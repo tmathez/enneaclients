@@ -1,0 +1,9 @@
+<results>
+	<success><%=@success %></success>
+	<message><%=@message %></message>
+	<% if @client %>
+	<poste_id><%=params[:poste_id] %></poste_id>
+	<ts><%=@client.enneascanning_ts.to_s %></ts>
+	<nb_licences><%=@client.nb_licences_ts.to_s %></nb_licences>
+	<% end %>
+</results>

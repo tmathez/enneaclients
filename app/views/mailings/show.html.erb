@@ -1,0 +1,49 @@
+<div class="show_mailing">
+	<h1 class="title_left" style="margin:0"><span>Mailing</span> <%=@mailing.nom %></h1>
+	<h2 class="title_right">
+		<%= link_to 'Modifier ce mailing', edit_mailing_path(@mailing) %>
+	</h2>
+	<hr />
+	<div class="mailing_envoi mailing_infos">
+		<p>Type <strong><%=@mailing.type_mailing.description %></strong></p>
+		<p>Concerne <strong><%=@mailing.interet.description %></strong></p>
+		<p>
+			<%=link_to "", mailing_path(@mailing, :done => (@mailing.termine ? false : true)), 
+					   :method => :put, :remote => true, :class => "switch#{' on' if @mailing.termine}" %>
+		</p>
+	</div>
+	<div class="envois">
+		<h2 class="title_left" style="margin:0"><%=image_tag "mail.png" %> Envois effectu&eacute;s</h2>
+		<h2 class="title_right">
+			<%= link_to 'Nouvel envoi', new_mailing_envoi_path(@mailing) %>
+		</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Description</th>
+					<th class="center">Non contacté</th>
+					<th class="center">A rappeler</th>
+					<th class="center">Favorables</th>
+					<th class="center">Ne plus contacter</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for envoi in @mailing.envois.order("date_envoi") %>
+					<tr>
+						<td><%=envoi.date_envoi.strftime("%d.%m.%Y") %></td>
+						<td><%=link_to envoi.nom, mailing_envoi_path(@mailing, envoi) %></td>
+						<td class="center"><%=envoi.a_contacter(@mailing.id) %></td>
+						<td class="center"><%=envoi.a_rappeler(@mailing.id) %></td>
+						<td class="center"><%=envoi.contact_favorable(@mailing.id) %></td>
+						<td class="center"><%=envoi.ne_plus_contacter(@mailing.id) %></td>
+						<td class="center">
+							<%=link_to image_tag("edit.png"), edit_mailing_envoi_path(@mailing,envoi) %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

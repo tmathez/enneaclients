@@ -1,0 +1,53 @@
+<table id="mailings">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for mailing in mailings %>
+			<tr style="border-bottom:1px solid #EEE">
+				<td colspan="6"><%=link_to mailing.nom, mailing_path(mailing) %></td>
+				<td><%=mailing.type_mailing.description %></td>
+				<td><%=mailing.interet.description %></td>
+				<td></td>
+			</tr>
+			<% for envoi in mailing.envois.order("date_envoi") %>
+			<tr class="envoi">
+				<td><% if mailing.envois.order("date_envoi").first == envoi %><h4><%=image_tag("mini_mail.png") %> Envois</h4><% end %></td>
+				<td><%=envoi.date_envoi.strftime("%d.%m.%Y") %></td>
+				<td>
+					<%=link_to envoi.nom, mailing_envoi_path(mailing, envoi) %> 
+				</td>
+				<td><%=envoi.clients.length %> client(s)</td>
+				<td title="A appeler"><%=image_tag("mini_call.png") %><%=envoi.a_contacter(mailing.id) %></td>
+				<td title="A rappeler"><%=image_tag("mini_call_back.png") %><%=envoi.a_rappeler(mailing.id) %></td>
+				<td title="Contacts favorables"><%=image_tag("mini_call_ok.png") %><%=envoi.contact_favorable(mailing.id) %></td>
+				<td title="Ne plus rappeler"><%=image_tag("mini_dont_call.png") %><%=envoi.ne_plus_contacter(mailing.id) %></td>
+				<td class="center">
+					<span class="done_<%=envoi.termine.to_s %>">&nbsp;&nbsp;<%=envoi.termine ? "TERMINE" : "EN COURS" %>&nbsp;&nbsp;</span>
+				</td>
+			</tr>
+			<% end %>
+			<tr class="envoi" style="border-top:1px solid #CCC">
+				<td></td>
+				<td></td>
+				<td style="font-weight:bold;color:#888">Total du mailing</td>
+				<td style="font-weight:bold;color:#888"><%=mailing.clients_count %> client(s)</td>
+				<td title="A appeler"><%=image_tag("mini_call.png") %><%=mailing.a_contacter %></td>
+				<td title="A rappeler"><%=image_tag("mini_call_back.png") %><%=mailing.a_rappeler %></td>
+				<td title="Contacts favorables"><%=image_tag("mini_call_ok.png") %><%=mailing.contact_favorable %></td>
+				<td title="Ne plus rappeler"><%=image_tag("mini_dont_call.png") %><%=mailing.ne_plus_contacter %></td>
+				<td></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

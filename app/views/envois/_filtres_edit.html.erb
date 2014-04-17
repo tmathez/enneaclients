@@ -1,0 +1,72 @@
+<h3>Séléction des clients</h3>
+<div id="filtres">
+	<p>
+		<label>Clients</label>
+		<%=select_tag "filtre[interesses]", "<option value='' #{'selected' if @filtres['interesses'].nil?}>Tous</option><option value='true' #{'selected' if @filtres['interesses']=='true'}>Intéressés</option><option value='false' #{'selected' if @filtres['interesses']=='false'}>Clients</option>".html_safe %>
+		<%=link_to "Filtrer", "#", :class => "button_link" %>
+		<%=image_tag "loader.gif", :id => "loading_refresh" %>
+	</p>
+	<div id="filtre_general">
+		<h4>Filtre général</h4>
+		<div class="secteurs">
+			<h5><%=check_box_tag "filtre[has_secteur]", nil, !@filtres["has_secteur"].nil?, "data-show-hide" => "secteurs" %> Domaine(s) d'activité</h5>
+			<div id="secteurs" style="<%='display:none;' if @filtres["has_secteur"].nil? %>">
+				<% for secteur in Secteur.all %>
+					<p>
+						<%=check_box_tag "filtre[secteur][]", secteur.id, 
+						  @filtres["secteur"].to_s.gsub(/\[|\]/,"").split(",").include?(secteur.id.to_s) %><%=secteur.description %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="interesse_par secteurs">
+			<h5><%=check_box_tag "filtre[has_interet]", nil, !@filtres["has_interet"].nil?, "data-show-hide" => "interets" %> Intéressé par</h5>
+			<div id="interets" style="<%='display:none;' if @filtres["has_interet"].nil? %>">
+				<% for interet in Interet.all %>
+					<p>
+						<%=check_box_tag "filtre[interet][]", interet.id,
+						  @filtres["interet"].to_s.gsub(/\[|\]/,"").split(",").include?(interet.id.to_s) %><%=interet.description %>
+				 	</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="interesse_par secteurs">
+			<h5><%=check_box_tag "filtre[has_lieu]", nil, !@filtres["has_lieu"].nil?, "data-show-hide" => "lieu" %> Situation géographique</h5>
+			<div id="lieu" style="<%='display:none;' if @filtres["has_lieu"].nil? %>">
+				<p class="lieu" style="width:25%">
+					<%=label_tag "filtre", "Canton" %>
+					<%=select_tag "filtre[lieu_canton]", options_for_select(cantons, @filtres["lieu_canton"]), { :include_blank => true } %>
+				</p>
+				<p class="lieu" style="width:60%">
+					<%=label_tag "filtre", "NPA" %>
+					<%=text_field_tag "filtre[lieu_npa_de]", @filtres["lieu_npa_de"], :placeholder => "De", :style => "width:50px" %>
+					<%=text_field_tag "filtre[lieu_npa_a]", @filtres["lieu_npa_a"], :placeholder => "À", :style => "width:50px"  %>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="filtre_clients" style="<%='display:inline' if @filtres["interesses"] == "false" %>">
+		<h4>Filtre des clients existants</h4>
+		<div class="secteurs">
+			<h5><%=check_box_tag "filtre[has_contrat]", nil, !@filtres["has_contrat"].nil?, "data-show-hide" => "contrats" %> Contrat maintenance</h5>
+			<div id="contrats" style="<%='display:none;' if @filtres["has_contrat"].nil? %>">
+				<p style="width:40%">SORBA <%=select_tag_bool "filtre[contrat_sorba]", @filtres["contrat_sorba"] %></p>
+				<p style="width:40%">enneasoft <%=select_tag_bool "filtre[contrat_enneasoft]", @filtres["contrat_enneasoft"] %></p>
+			</div>
+		</div>
+		<div class="interesse_par secteurs">
+			<h5><%=check_box_tag "filtre[has_produit]", nil, !@filtres["has_produit"].nil?, "data-show-hide" => "produits" %> Produits</h5>
+			<div id="produits" style="<%='display:none;' if @filtres["has_produit"].nil? %>">
+				<p style="width:15%">SORBA <%=select_tag_bool "filtre[produit_sorba]", @filtres["produit_sorba"] %></p>
+				<p style="width:20%">enneascanning <%=select_tag_bool "filtre[produit_enneascanning]", @filtres["produit_enneascanning"] %></p>
+				<p style="width:40%">
+					enneascanningPDF <%=select_tag_bool "filtre[produit_enneascanning_pdf]", @filtres["produit_enneascanning_pdf"] %>
+					avec la version <%=text_field_tag "filtre[produit_version_epdf]", @filtres["produit_version_epdf"], :style => "width:40px" %>
+				</p>
+				<p style="width:20%">
+					Autres produits <%=select_tag_bool "filtre[produit_autres]", @filtres["produit_autres"] %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

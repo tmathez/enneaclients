@@ -1,0 +1,9 @@
+<% if @envoi.termine %>
+	$(".switch").attr('href', '<%=escape_javascript(envoi_path(@envoi, :done => false)) %>').animate({ backgroundPosition: '-83px 0px' }, 300);
+	$(".show_when_done").fadeIn();
+	$(".hide_when_done").fadeOut();
+<% else %>
+	$(".switch").attr('href', '<%=escape_javascript(envoi_path(@envoi, :done => true)) %>').animate({ backgroundPosition: '0px 0px' }, 300);
+	$(".show_when_done").fadeOut();
+	$(".hide_when_done").fadeIn();
+<% end %>

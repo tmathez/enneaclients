@@ -1,0 +1,34 @@
+<%=form_for textes_standard, :remote => true do |f| %>
+<div class="texte_standard">
+	<div>
+		<%=f.label :texte_string, "Titre" %>
+		<%=f.text_field :texte_string, :readonly => true, :style => "width:81%" %>
+		<input type="hidden" value="<%=textes_standard.texte_string %>" />
+	</div>
+	<div>
+		<%=f.label :texte_rabais, "Texte du rabais" %>
+		<%=f.text_field :texte_rabais, :readonly => true, :style => "width:81%" %>
+		<input type="hidden" value="<%=textes_standard.texte_rabais %>" />
+	</div>
+	<div>
+		<%=f.label :contrat_nom, "Contrat maintenance" %>
+		<%=f.text_field :contrat_nom, :readonly => true, :style => "width:81%" %>
+		<input type="hidden" value="<%=textes_standard.contrat_nom %>" />
+	</div>
+	<div>
+		<%=f.label :contrat_description, "Détails du contrat" %>
+		<%=f.text_area :contrat_description, :readonly => true %>
+		<span style="display:none"><%=textes_standard.contrat_description.to_s %></textarea>
+	</div>
+	<div>
+		<%=f.label :texte_installation, "Texte de l'installation" %>
+		<%=f.text_area :texte_installation, :readonly => true %>
+		<span style="display:none"><%=textes_standard.texte_installation.to_s %></textarea>
+	</div>
+	<div>
+		<%=f.label :texte_final, "Texte final" %>
+		<%=f.text_area :texte_final, :readonly => true %>
+		<span style="display:none"><%=textes_standard.texte_final.to_s %></textarea>
+	</div>
+</div>
+<% end %>

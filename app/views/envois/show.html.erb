@@ -1,0 +1,51 @@
+<div class="show_mailing">
+	<h1 class="title_left" style="margin:0"><span>Mailing</span> <%=link_to @mailing.nom, mailing_path(@mailing) %></h1>
+	<h2 class="title_right">
+		<%= link_to 'Liste pour publipostage', envoi_path(@envoi, :format => :xls) %> |
+		<%= link_to 'Modifier cet envoi', edit_mailing_envoi_path(@mailing,@envoi) %>
+	</h2>
+	<hr />
+	<div class="mailing_envoi">
+		<p><%=image_tag("mail.png")%> Envoi</p>
+		<p>Date de l'envoi <strong><%=@envoi.date_envoi.strftime("%d.%m.%Y") %></strong></p>
+		<p>Description <strong><%=@envoi.nom %></strong></p>
+		<p>
+			<%=link_to "", envoi_path(@envoi, :done => (@envoi.termine ? false : true)), 
+					   :method => :put, :remote => true, :class => "switch#{' on' if @envoi.termine}" %>
+		</p>
+	</div>
+	<%=render "envois/filtres_show" %>
+	<h1 class="title_left" style="margin:0">
+		Suivi des clients 
+		<span class="show_when_done<%=' hidden' if !@envoi.termine %>">- cet envoi est terminé, son suivi est désactivé</span>
+	</h1>
+	<h3 id="show_clients" class="title_right">
+		<div id="show_clients_filter">
+			Afficher les clients 
+			<%= select_tag "filtre_show[clients]", options_from_collection_for_select(Etat.order(:id),"id","description"), { :include_blank => true } %>
+		</div>
+		<%=image_tag "loader.gif", :id => "loading_refresh" %>
+	</h3>
+	<hr />
+	<div id="clients">
+		<table class="suivis_clients">
+			<thead>
+				<tr>
+					<th>Etat</th>
+					<th>Nom</th>
+					<th>Contact</th>
+					<th>NPA</th>
+					<th>Lieu</th>
+					<th>T&eacute;l&eacute;phone</th>
+					<th>Dernier contact</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody id="clients_for_suivi">
+				<%=render "envois/clients_for_suivi" %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="overlay"></div>
+<div id="suivi"></div>

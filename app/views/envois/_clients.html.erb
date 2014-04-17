@@ -1,0 +1,24 @@
+<table>
+	<thead>
+		<th style="width:30px">&nbsp;</th>
+		<th style="width:70%">Nom</th>
+		<th style="width:10%">NPA</th>
+		<th style="width:20%">Lieu</th>
+	</thead>
+	<tbody>
+		<% if !@clients.nil? && @clients.length > 0 %>
+			<% for client in @clients %>
+				<tr class="client" id="<%=client.id.to_s%>">
+					<td><%=check_box_tag "add_client[client_ids][]", client.id, false %></td>
+					<td><%=client.nom %></td>
+					<td><%=client.npa %></td>
+					<td style="border-right:0"><%=client.lieu %></td>
+				</tr>
+			<% end %>
+		<% else %>
+			<tr class="no_clients">
+				<td colspan="4">Aucun client à afficher.</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

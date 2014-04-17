@@ -1,0 +1,13 @@
+<tr <%='class="evenement_solved"'.html_safe if evenement.facturation==2 %>>
+	<td><%=check_box_tag "evenement_"+evenement.id.to_s, evenement.id, evenement.facturation == 1 ? false : true, 
+		 :class => "check_box_facture_evenement", :title => "Facturer" %></td>
+	<td><%=format_date(evenement.date_evenement) %></td>
+	<td><%=link_to evenement.client.nom, client_path(evenement.client) %></td>
+	<td title="<%=evenement.solution %>">
+		<%=link_to light_rc(evenement.description).html_safe, edit_evenement_path(evenement) %>
+	</td>
+	<td>
+		<%=format_number(evenement.total.to_f,"'") %> Fr.
+	</td>
+	<td><%=evenement.responsable_id.nil? ? "Non défini" : evenement.responsable.prenom %></td>
+</tr>

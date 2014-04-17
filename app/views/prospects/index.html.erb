@@ -1,0 +1,34 @@
+<h1>Prospection</h1>
+<%=form_tag "/prospects", :method => :get do %>
+<p style="margin:10px auto 10px auto;width:90%;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;padding:10px 5% 10px 5%;font-size:1.2em;font-weight:bold">
+	<%=text_field_tag :was, params[:was], :style => "width:40%", :placeholder => "Nom ou n° de téléphone" %>
+	<%=text_field_tag :who, params[:who], :style => "width:40%", :placeholder => "Lieu ou NPA" %>
+	<%=submit_tag "Rechercher" %>
+</p>
+<% end %>
+<div id="list_clients" class="prospect_clients">
+	<% if !@clients.nil? %>
+		<h2>
+			<%=@total_results %> résultat(s) trouvé(s) <span class="<%='hidden' if @total_results.to_i < 200 %>">- affichage des 200 premiers résultats</span>
+		</h2>
+		<% for client in @clients %>
+			<div class="prospect_client">
+				<p><%=client.secteur_activite.length == 0 ? "" : client.secteur_activite[0] %></p>
+				<p><strong><%=link_to client.nom, client.adresse_tel_search, { :target => :_blank } %></strong></p>
+				<p><%=client.contact %></p>
+				<p><%=client.rue %></p>
+				<p><%="#{client.npa} #{client.lieu}" %></p>
+				<p>Tél : <%=client.tel %></p>
+				<p><%="Fax : #{client.fax}" if !client.fax.nil? %></p>
+				<p><%="Natel : #{client.natel}" if !client.natel.nil? %></p>
+				<p><%="Email : #{mail_to truncate(client.email), client.email}".html_safe if !client.email.nil? %></p>
+				<p><%="Web : #{link_to truncate(client.web), client.web}".html_safe if !client.web.nil? %></p>
+				<p class="bottom">
+					<%=link_to "Ajouter ce client", new_client_path(:client => record_to_hash(client), :secteur_activite => client.secteur_activite), { :target => :_blank } %>
+				</p>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+<div id="overlay"></div>
+<div id="client" style="width:700px;border:3px solid #CCC;margin-top:20px;padding:15px"></div>

@@ -1,0 +1,7 @@
+<h1 class="title_left">Mailings</span></h1>
+<h2 class="title_right"><%= link_to 'Nouveau mailing', new_mailing_path %></h2>
+<h3 class="pending_title" style="clear:both">En cours <span id="count_pending">&nbsp;&nbsp;<%=@pendings.length %>&nbsp;&nbsp;</span></h3>
+<%=render "mailings", :mailings => @pendings %>
+
+<h3 class="solved_title" style="clear:both">Terminés <span id="count_solved">&nbsp;&nbsp;<%=@done.length %>&nbsp;&nbsp;</span></h3>
+<%=render "mailings", :mailings => @done %>

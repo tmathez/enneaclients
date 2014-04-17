@@ -1,0 +1,16 @@
+<h4 class="title_left">Clients séléctionnés pour ce mailing <span>- <%=@clients.length %> clients disponibles avec le filtre actuel</span></h4>
+<h4 class="title_right"><%=link_to "Ajouter un client", "#", :id => "add_client_link" %></h4>
+<table style="clear:both">
+	<thead>
+		<th style="width:30px">&nbsp;</th>
+		<th style="width:30%">Nom</th>
+		<th style="width:40%"></th>
+		<th style="width:10%">NPA</th>
+		<th style="width:20%">Lieu</th>
+	</thead>
+	<tbody id="clients_for_envoi">
+		<% for client in @clients %>
+			<%=render "envois/client", :client => client, :attribute => attribute, :added => nil %>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,52 @@
+<h1>
+	<%=@suivi.client.nom %>
+</h1>
+<h2>suivi pour l'envoi <span><%=@envoi.nom %></span> du <span><%=e @envoi.date_envoi %></span> pour le mailing <span><%=@suivi.mailing.nom %></span></h2>
+<hr/>
+<div class="edit_event">
+  <%=form_for @suivi do |f| %>
+  <%=hidden_field_tag "envoi", "id", :value => @envoi.id %>
+  <div class="general" style="border-bottom:0">
+  	  <%=f.hidden_field :client_id %>
+  	  <%=f.hidden_field :mailing_id %>
+	  <p style="width:12%;float:left">
+	    <%= f.label :date_suivi, "Date" %><br />
+	    <%= f.text_field :date_suivi, :style => "width:85%" %>
+	  </p>
+	  <p style="width:58%;float:left">
+	    <%= f.label :contact, "Personne de contact" %><br />
+	    <%= f.text_field :contact_titre, :value => @suivi.client.titre, :style => "width:15%", :placeholder => "Titre" %>
+	    <%= f.text_field :contact_prenom, :value => @suivi.client.contact_nom, :style => "width:38%", :placeholder => "Prénom" %>
+	    <%= f.text_field :contact_nom, :value => @suivi.client.contact_prenom, :style => "width:40%", :placeholder => "Nom" %>
+	  </p>
+	  <p style="width:18%;float:left">
+	    <%= f.label :etat_id, "Résultat de l'appel" %><br />
+	    <%= f.select :etat_id, Etat.order('id').where("id > 1").collect {|e| [e.description,e.id] }, :style => "width:90%" %>
+	  </p>
+	  <p style="width:12%;float:left">
+	    <%= f.label :date_next_contact, "Recontacter le" %><br />
+	    <%= f.text_field :date_next_contact, :style => "width:90%", :value => nil %>
+	  </p>
+  </div>
+  <div class="remarques">
+    <p>
+    	<%= f.label :commentaire, "Commentaire" %> <br/>
+    	<%= f.text_area :commentaire %>
+	</p>
+  </div>
+  <hr/>
+  <p class="footer">
+    <%= f.submit 'Ajouter' %> ou <%=link_to "Annuler", mailing_envoi_path(@suivi.mailing,@envoi).to_s+"#client_#{@suivi.client.id}", "data-close" => "suivi" %>
+  </p>
+  <% end %>
+  <% if !@last_suivis.nil? %>
+  	<h3>Détail des 3 derniers contacts avec ce client pour ce mailing</h3>
+  	<% for suivi in @last_suivis %>
+	  	<div>
+	  		<p><%=suivi.date_suivi %></p>
+	  		<p><%=suivi.contact %></p>
+	  		<p><%=suivi.commentaire %></p>
+	  	</div>
+  	<% end %>
+  <% end %>
+</div>

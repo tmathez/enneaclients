@@ -1,0 +1,100 @@
+<div class="edit_mailing">
+	<h3><%=check_box_tag "filtre", nil, nil, "data-show-hide" => "filtres" %> Afficher les filtres appliqués pour cet envoi
+		<%="<span>- filtres non modifiables sur cet envoi, un suivi des clients a déjà commencé</span>".html_safe if params[:action] == "edit" %>
+	</h3>
+	<div id="filtres">
+		<p style="font-size:1.15em">
+			Clients
+			<strong><%=@filtres["interesse"].nil? ? "Tous" : (@filtres["interesse"] == "true" ? "Intéressés" : "Existants") %></strong>
+		</p>
+		<div id="filtre_general">
+			<h4>FILTRE GENERAL</h4>
+			<div class="secteurs">
+				<h5>Domaine(s) d'activité</h5>
+				<div id="secteurs">
+					<% if !@filtres["secteur"].nil? %>
+						<% for id in @filtres["secteur"].gsub(/\[|\]/,"").split(",") %>
+							<p><%=Secteur.find(id).description %></p>
+						<% end %>
+					<% else %>
+						<p>Aucun filtre appliqué.</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="interesse_par secteurs">
+				<h5>Intéressé par</h5>
+				<div id="interets">
+					<% if !@filtres["interet"].nil? %>
+						<% for id in @filtres["interet"].gsub(/\[|\]/,"").split(",") %>
+							<p><%=Interet.find(id).description %></p>
+						<% end %>
+					<% else %>
+						<p>Aucun filtre appliqué.</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="interesse_par secteurs">
+				<h5>Situation géographique</h5>
+				<div id="lieu">
+					<% if !@filtres["has_lieu"].nil? %>
+						<% if !@filtres["lieu_canton"].nil? %>
+							<p class="lieu" style="width:25%">
+								<%=label_tag "filtre", "Canton" %>
+								<strong><%=@filtres["lieu_canton"] %></strong>
+							</p>
+						<% end %>
+						<% if !@filtres["lieu_npa_de"].nil? || !@filtres["lieu_npa_a"].nil? %>
+						<p class="lieu" style="width:60%">
+							<%=label_tag "filtre", "NPA" %>
+							<% if !@filtres["lieu_npa_de"].nil? %>
+								De <strong><%=@filtres["lieu_npa_de"] %></strong>
+							<% end %>
+							<% if !@filtres["lieu_npa_a"].nil? %>
+								À <strong><%=@filtres["lieu_npa_a"] %></strong>
+							<% end %>
+						</p>
+						<% end %>
+					<% else %>
+						<p>Aucun filtre appliqué.</p>
+					<% end %>						
+				</div>
+			</div>
+		</div>
+		<div id="filtre_clients">
+			<h4>FILTRE DES CLIENTS EXISTANTS</h4>
+			<div class="secteurs">
+				<h5>Contrat maintenance</h5>
+				<div id="contrats">
+					<% if !@filtres["contrat_sorba"].nil? || !@filtres["contrat_enneasoft"].nil? %>
+						<strong>
+							<% if !@filtres["contrat_sorba"].nil? %><p style="width:40%">SORBA</p><% end %>
+							<% if !@filtres["contrat_enneasoft"].nil? %><p style="width:40%">enneasoft</p><% end %>
+						</strong>
+					<% else %>
+						<p>Aucun filtre appliqué.</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="interesse_par secteurs">
+				<h5>Produits</h5>
+				<div id="produits">
+					<% if !@filtres["produit_sorba"].nil? || !@filtres["produit_enneascanning"].nil? || !@filtres["produit_enneascanning_pdf"].nil? || !@filtres["produit_autres"].nil? %>
+						<strong>	
+							<% if !@filtres["produit_sorba"].nil? %><p style="width:15%">SORBA</p><% end %>
+							<% if !@filtres["produit_enneascanning"].nil? %><p style="width:20%">enneascanning</p><% end %>
+							<% if !@filtres["produit_enneascanning_pdf"].nil? %>
+								<p style="width:40%">
+									enneascanningPDF
+									<%="avec la version #{@filtres["produit_version_epdf"]}" if !@filtres["produit_version_epdf"].nil? %>
+								</p>
+							<% end %>
+							<% if !@filtres["produit_autres"].nil? %><p style="width:20%">Autres</p><% end %>
+						</strong>
+					<% else %>
+						<p>Aucun filtre appliqué.</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

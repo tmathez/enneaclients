@@ -1,0 +1,170 @@
+<div id="print_offre">
+	<div class="print_offre_informations">
+		<div>
+			<strong><%=@offre.societe.client.nom %></strong><br/>
+			<%=@offre.societe.client.rue %><br/>
+			<%=@offre.societe.client.npa %> <%=@offre.societe.client.lieu %>
+		</div>
+		<div>
+			<strong><%=@offre.client_nom.to_s %></strong><br/>
+			<%="À l'att. de #{@offre.client_reference.to_s}<br/>".html_safe if !@offre.client_reference.nil? %>
+			<%=(@offre.client_adresse.to_s+"<br/>").html_safe if !@offre.client_adresse.nil? %>
+			<%=@offre.client_npa.to_s+" "+@offre.client_lieu.to_s %>
+		</div>
+	</div>
+	<!-- TITRE -->
+	<h1><%=@offre.texte_string %></h1>
+	<!-- MODULES -->
+	<% if @offre.offres_modules.length > 0 %>
+		<h3>Modules int&eacute;gr&eacute;s dans l'offre</h3>
+		<div id="print_offre_modules" class="print_offre_elements">
+			<% for of in @offre.offres_modules.order("module_id") do %>
+			<div class="print_offre_module print_offre_element">
+				<div><%=of.nom %></div>
+				<div><%=RedCloth.new(of.description.to_s).to_html.html_safe %></div>
+				<div>CHF</div>
+				<div><%=format_number(of.prix,"'") %></div>
+			</div>
+			<% end %>
+		</div>
+		<% if @offre.rabais_logiciel > 0 or @offre.licences > 0 %>
+			<hr />
+			<div class="print_total" style="line-height:30px;border-top:1px solid #000">
+				<div>Montant total HT pour une licence de base</div>
+				<div>CHF</div>
+				<div><%=format_number(@offre.total_modules,"'") %></div>
+			</div>
+		<% end %>
+		<% if @offre.licences > 0 %>
+			<hr />
+			<div class="print_total" style="font-weight:normal">
+				<div>
+					Prix pour <%=@offre.licences %> licence<%="s" if @offre.licences > 1 %> suppl&eacute;mentaire<%="s" if @offre.licences > 1 %><br/>
+					<span style="color:#888;font-size:0.8em">CHF <%=format_number(@offre.total_licence,"'") %>, soit 20% du prix de la licence de base</span>
+				</div>
+				<div>CHF</div>
+				<div><%=format_number(@offre.total_licences,"'") %></div>
+			</div>
+		<% end %>
+		<% if @offre.rabais_logiciel > 0 %>
+			<hr />
+			<div class="print_total rabais">
+				<div><%=@offre.texte_rabais.to_s %> <%=format_number(@offre.rabais_logiciel,"'") %>%</div>
+				<div>CHF</div>
+				<div><%=format_number(@offre.total_rabais,"'") %></div>
+			</div>
+		<% end %>
+		<hr />
+		<div class="print_total total_final">
+			<div>Montant total HT des logiciels</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.total_modules_final,"'") %></div>
+		</div>
+		<hr />
+	<% end %>
+	
+	<!-- SERVICES -->
+	<% if @offre.offres_services.length > 0 %>
+		<h3>Services</h3>
+		<div id="print_offre_services" class="print_offre_elements">
+			<% for os in @offre.offres_services.order("service_id") do %>
+			<div class="print_offre_service print_offre_element">
+				<div><%=RedCloth.new(os.description.to_s).to_html.html_safe %></div>
+				<div>CHF</div>
+				<div><%=format_number(os.prix_jour.to_f*os.nb_jours.to_f,"'") %></div>
+			</div>
+			<% end %>
+		</div>
+		<hr/>
+		<div class="print_total total_final">
+			<div>Montant total HT des services</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.total_services,"'") %></div>
+		</div>
+		<hr />
+	<% end %>
+		
+	<!-- RECAPITULATION -->
+	<div>
+	<div id="print_offre_services" class="print_offre_elements" style="margin-top:30px;border-bottom:2px solid #000;height:98px;<%="page-break-before:always" if @offre.offres_modules.length > 3 %>">
+		<div class="print_total total_final">
+			<div>Montant total HT de l'offre</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.total_ht,"'") %></div>
+		</div>
+		<div class="print_offre_service print_offre_element" style="height:20px;border:0;margin-top:-5px;font-weight:bold">
+			<div>+ TVA</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.total_tva,"'") %></div>
+		</div>
+		<div class="print_total total_final">
+			<div>Montant TTC</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.total_ttc,"'") %></div>
+		</div>
+	</div>
+	<hr style="border-bottom:2px solid #000;height:3px"/>
+	
+	<!-- ANNUELS -->
+	<% if @offre.contrat.to_f > 0 || @offre.offres_catalogues.length > 0 %>
+	<h3>Abonnement annuel</h3>
+	<div id="print_offre_modules" class="print_offre_elements">
+		<% if @offre.offres_catalogues.length > 0 %>
+			<div class="print_offre_module print_offre_element">
+				<div>Donn&eacute;es SSE 2012</div>
+				<div>
+					<% for oc in @offre.offres_catalogues.order("catalogue_id") do %>
+						<%=oc.nom.to_s+" "+(oc.catalogue.analyses ? "avec analyses" : (oc.catalogue.analyses.nil? ? "" : "sans analyses"))+" - "+(oc.catalogue.membre ? "membre SSE" : "non membre SSE") %>
+						<br/>
+					<% end %>
+				</div>
+				<div>CHF</div>
+				<div><%=format_number(@offre.total_catalogues,"'") %></div>
+			</div>				
+		<% end %>
+		<% if @offre.contrat.to_f > 0 %>
+		<div class="print_offre_module print_offre_element">
+			<div><%=@offre.contrat_nom.to_s %></div>
+			<div>
+				<%=RedCloth.new(@offre.contrat_description.to_s).to_html.html_safe %>
+			</div>
+			<div>CHF</div>
+			<div><%=format_number(@offre.contrat,"'") %></div>
+		</div>
+		<% end %>
+	</div>
+	<hr />
+	<div class="print_total total_final">
+		<div>Montant total des abonnements annuels</div>
+		<div>CHF</div>
+		<div><%=format_number(@offre.total_annuel,"'") %></div>
+	</div>
+	<hr />
+	<% end %>
+
+	<!-- MISE EN PLACE ET TEXTE FINAL -->
+	<hr />
+	<h3>Mise en place</h3>
+	<div id="offre_mise_en_place" class="print_offre_mise_en_place">
+		<div>Date d'installation : <strong><%=@offre.date_installation.nil? ? "&agrave; d&eacute;finir".html_safe : format_date(@offre.date_installation) %></strong></div>
+		<div>
+			<%=simple_format(@offre.texte_installation.to_s) %>
+		</div>
+		<div>
+			<%=simple_format(@offre.texte_final.to_s) %>
+		</div>
+		<div>
+			Date : _______________
+		</div>
+		<div>
+			Signature : _________________________________
+		</div>
+		<div>
+			Entreprise : ________________________________
+		</div>
+		<div>
+			<strong>SORBA Informatique SA</strong><br />
+			Marcos Caballero
+		</div>
+	</div>
+</div>

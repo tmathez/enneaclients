@@ -1,0 +1,22 @@
+<h3 class="pending_title" style="width:50%;float:left">En suspens <span id="count_pending">&nbsp;&nbsp;<%=pending.length %>&nbsp;&nbsp;</span></h3>
+<p class="pending_title" style="width:46%;float:left;text-align:right;height:20px;padding-top:10px;background-image:none">
+	<%=link_to '<img src="/images/print.png" id="print_events"/>'.html_safe, { :controller => "evenements", :action => "print", :client_id => params[:controller] == "clients" ? @client.id : nil }, :remote => true %>
+</p>
+<table style="clear:both">
+	<tbody id="pending_evenements" class="events">
+		<% for evenement in pending %>
+			<%=render evenement %>
+		<% end %>
+	</tbody>
+</table>
+<h3 class="solved_title">R&eacute;solus <span id="count_solved">&nbsp;&nbsp;<%=solved_length %>&nbsp;&nbsp;</span></h3>
+<table>
+	<tbody id="solved_evenements" class="events">
+		<% for evenement in solved %>
+			<%=render evenement %>
+		<% end %>
+	</tbody>
+	<tbody id="all_solved" class="events hidden">
+	</tbody>
+</table>
+<div id="print_form" style="background:#FFF;border:2px solid #EEE;padding:10px"></div>

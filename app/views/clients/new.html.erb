@@ -1,0 +1,39 @@
+<%= form_for @client do |f| %>
+<h1 class="title_left">Ajouter un client</h1>
+<h1 class="title_right" style="margin-top:8px">
+	<%=link_to "", "#", :class => "switch interesse#{' on' if !@client.interesse}" %>
+	<%=f.hidden_field :interesse %>
+</h1>
+<div class="edit_client">
+  <% # Ajout du champ "inactif" et "no_support" afin qu'ils l'appliquent à false à chaque fois  %>
+  <%=f.check_box :no_support, :style => "display:none" %><%=f.check_box :inactif, :style => "display:none" %>
+  <%=render "form", :f => f %>
+  <hr style="border:0;clear:both">
+  <p style="text-align:right;margin-right:10px">
+    <%= f.submit 'Ajouter' %> ou <%=link_to "Annuler", clients_path %>
+  </p>
+</div>
+<% end %>
+<% if @clients.length > 0 %>
+	<div id="warning_same_clients">
+		<h2><strong>Attention !</strong> Il existe déjà un ou plusieurs client avec ce numéro de téléphone.</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Contact</th>
+					<th>Rue</th>
+					<th>NPA / Lieu</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for client in @clients %>
+					<tr>
+						<td><%=client.nom %></td>
+						<td><%=e client.contact %></td>
+						<td><%=e client.rue %></td>
+						<td><%=e @client.npa %> <%=e @client.lieu %> <%="(#{@client.canton})" if !@client.canton.blank? %></td>
+				<% end %>
+			</tbody>
+	</div>
+<% end %>

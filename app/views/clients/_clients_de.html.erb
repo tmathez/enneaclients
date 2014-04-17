@@ -1,0 +1,29 @@
+<table id="liste_clients">
+  <thead>
+  	  <tr style="color:#AAA">
+	    <th style="width:8%"></th>
+	    <th style="width:32%"></th>
+	   	<th colspan="2" style="width:30%;text-align:center">enneascanningPDF</th>
+	    <th colspan="2" style="width:20%;text-align:center">Licences</th>
+	    <th style="width:3%"></th>
+	    <th style="width:3%;text-align:center">
+	    	<%=link_to '<img src="/images/print.png"/>'.html_safe, "#", { :id => "print_clients", :_blank => true } %>
+    	</th>
+	  </tr>
+	  <tr>
+	    <th id="numero_enneasoft" style="width:8%;text-align:center">enneasoft <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="nom" style="border-left:1px solid #CCC;width:32%;padding-left:5px">Nom <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="sorba" style="width:6%;text-align:center;border-left:1px solid #CCC">Serial <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="enneasoft" style="width:6%;text-align:center">Version <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th style="text-align:center;border-left:1px solid #CCC;">Disponibles <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th style="text-align:center;border-right:1px solid #CCC;">Utilis&eacute;es <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th style="width:3%"></th>
+	    <th style="width:3%"></th>
+	  </tr>
+  </thead>
+  <tbody id="clients">
+  	<% for client in @clients %>
+		<%=render "client_de", :client => client %>
+	<% end %>
+  </tbody>
+</table>

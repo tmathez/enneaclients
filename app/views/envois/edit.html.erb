@@ -1,0 +1,7 @@
+<h1>Modifier un envoi</h1>
+<div>
+<%= form_for @envoi do |f| %>
+  <%=f.hidden_field :mailing_id %>
+  <%=render "form", :e => f %>
+<% end %>
+</div>

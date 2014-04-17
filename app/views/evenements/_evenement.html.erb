@@ -1,0 +1,18 @@
+<tr <%='class="evenement_solved"'.html_safe if evenement.resolu %>>
+	<% from_client = params[:controller] == 'clients' || params[:from_client] == "true" ? true : false %>
+	<td><%=check_box_tag "evenement_"+evenement.id.to_s, evenement.id, evenement.resolu, :class => "check_box_solve_evenement", 
+		   "data-from-client" => from_client  %></td>
+	<td><%=format_date(evenement.date_evenement) %></td>
+	<td><%=format_date(evenement.heure_evenement,true) %></td>
+	<td style="<%='display:none' if params[:controller] == 'clients'%>"><%=link_to evenement.client.nom, client_path(evenement.client) %></td>
+	<td style="<%='display:none' if params[:controller] == 'clients'%>"><%=evenement.tel %></td>
+	<td title="<%=evenement.description %>">
+		<%=link_to light_rc(evenement.description).html_safe, from_client ? edit_client_evenement_path(params[:id], evenement) : edit_evenement_path(evenement) %>
+	</td>
+	<td><%=evenement.responsable_id.nil? ? "Non défini" : evenement.responsable.prenom %></td>
+	<td>
+		<%=link_to "<img src='/images/delete.gif' title='Supprimer'/>".html_safe, evenement_path(evenement), 
+		:confirm => "Êtes-vous sûr de vouloir supprimer cet événement ?", :method => :delete, :remote => true %>
+	</td>
+</tr>
+ 

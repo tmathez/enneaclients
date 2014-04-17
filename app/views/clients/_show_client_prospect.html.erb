@@ -1,0 +1,14 @@
+<h1 class="title_left" style="margin:0"><%=h @client.nom %></h1>
+<h2 class="title_right">
+	<%= link_to 'Modifier ce client', edit_client_path(@client) %>
+</h2>
+<ul class="show_client_menu">
+	<%=render "clients/show_menu"%>
+</ul>
+<%=image_tag "loader.gif", :id => "loading_change_section" %>
+<div id="show_sections">
+	<div id="infos"><%=render "clients/client_infos" if @page == "infos" %></div>
+	<div id="suivis"><%=render "clients/client_suivis" if @page == "suivis" %></div>
+	<div id="offres"><%=render "clients/client_offres" if @page == "offres" %></div>
+	<div id="evenements"><%=render "clients/client_evenements" if @page == "evenements" %></div>
+</div>

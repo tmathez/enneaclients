@@ -1,0 +1,28 @@
+<h1 style="border-bottom:1px dotted #CCC;padding-bottom:5px;margin-bottom:5px;height:25px">
+	<span style="color:#AAA"><%=h evenement.date_evenement.strftime("%d.%m.%Y") %></span> <%=h evenement.client.nom %>
+</h1>
+<div class="edit_event">
+  <%=form_for evenement do |f| %>
+  <%=f.hidden_field :resolu, :value => true %>
+  <%=hidden_field_tag "from_client", nil, :value => params[:from_client] %>
+  <div class="remarques">
+  	  <p style="margin-bottom:15px">
+	  	<label>Description</label>
+	  	<div class="description"><%=RedCloth.new(evenement.description).to_html.html_safe %></div>
+	  </p>
+	  <p class="solved">
+	  	<%= f.label :resolu, "Résolu", :id => "label_resolu" %> 
+  		<%=f.label :solution, "avec la solution suivante :", :id => "label_solution" %><br/>
+	    <%=f.text_area :solution %>
+	    <span id="facturation"><%= f.check_box :facturation, :value => 1 %> <%= f.label :facturation, "&Agrave; facturer".html_safe %>
+	  	<span id="a_facturer" class="<%=@evenement.facturation == 0 || @evenement.facturation.nil? ? 'pas_a_facturer' : 'a_facturer' %>">
+	  	<%= f.text_field :heures %><span class="inputlike">heures</span> &agrave; 
+	  	<%=f.text_field :tarif, :value => f.object.tarif.nil? || f.object.tarif == 0 ? "180.00" : f.object.tarif %><span class="inputlike">Fr.</span></span></span>
+	  </p>
+  </div>
+  <hr/>
+  <p class="footer">
+    <%= f.submit 'Modifier' %> ou <%=link_to "Annuler", params[:from_client]=="true" ? client_path(evenement.client.id) : evenements_path %>
+  </p>
+  <% end %>
+</div>

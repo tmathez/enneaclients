@@ -1,0 +1,21 @@
+<%=link_to '<img src="/images/print.png"/>'.html_safe, "#", { :id => "print_clients", :_blank => true, :style => "float:right" } %>
+<%=link_to '<img src="/images/excel.png"/>'.html_safe, print_excel_clients_path, :remote => true, :style => "float:right;padding:0 10px" %>
+<table id="liste_clients">
+  <thead>
+	  <tr>
+	    <th id="numero" style="width:35%">Nom <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="numero_enneasoft" style="width:15%;border-left:1px solid #CCC">Contact <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="nom" style="width:15%;padding-left:5px;border-left:1px solid #CCC">T&eacute;l&eacute;phone <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th id="sorba" style="width:15;text-align:center;border-left:1px solid #CCC">Int&eacute;ress&eacute; par <span class="sortUp">▲</span><span class="sortDown">▼</span></th>
+	    <th style="width:3%"></th>
+	    <th style="width:3%"></th>
+	  </tr>
+  </thead>
+  <tbody id="clients">
+  	<% for client in @clients %>
+		<%=render "client_prospect", :client => client %>
+	<% end %>
+  </tbody>
+</table>
+<div id="excel_form" style="background:#FFF;border:2px solid #EEE;padding:10px;width:380px;display:none">
+</div>

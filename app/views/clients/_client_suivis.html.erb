@@ -1,0 +1,37 @@
+<% if @client.suivis.count > 0 %>
+	<h2 class="title_left">10 derniers suivis de ce client - Afficher tous les suivis</h2>
+	<h2 class="title_right"><%=link_to "Ajouter un suivi", new_client_suivi_path(@client) %></h2>
+	<table class="suivis_clients" style="clear:both">
+		<thead>
+			<tr>
+				<th style="width:3%">Etat</th>
+				<th style="width:17%">Date</th>
+				<th style="width:42%">Mailing</th>
+				<th style="width:32%">Contact</th>
+				<th style="width:3%">&nbsp;</th>
+				<th style="width:3%">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody id="clients_for_suivi">
+			<% for suivi in @client.suivis.order("date_suivi DESC") %>
+				<tr id="<%=suivi.id.to_s %>" title="<%=suivi.etat.description %>" class="suivi etat_<%=suivi.etat.id.to_s%>">
+					<td><%=image_tag(suivi.etat.image_url) %></td>
+					<td><%=e suivi.date_suivi,true,"" %></td>
+					<td><%=suivi.mailing_id.nil? ? "<span class='light'>Ne concerne aucun mailing</span>".html_safe : link_to(suivi.mailing.nom, mailing_path(suivi.mailing)) %></td>
+					<td><%=e suivi.contact %></td>
+					<td class="center">
+						<%=link_to image_tag("edit.png"), edit_client_suivi_path(suivi.client, suivi) %>
+					</td>
+					<td class="center">
+						<%=link_to image_tag("delete.gif"), suivi_path(suivi), :method => :delete, :confirm => "Êtes-vous sûr  de vouloir supprimer ce suivi ?" %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<div class="no_element">
+		Il n'existe encore aucun suivi pour ce client<br/>
+		<%=link_to "Ajouter un premier suivi", new_client_suivi_path(@client), :class => "add_first" %>
+	</div>
+<% end %>

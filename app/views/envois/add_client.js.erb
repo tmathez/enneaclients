@@ -1,0 +1,16 @@
+<% if params[:selected_clients].present? %>
+	$("#overlay").css('display','none');
+	$("#add_client").css('display','none');
+	$("#add_client").html('');
+	<% for client in @clients %>
+		$("#clients_for_envoi").append("<%=escape_javascript(render('envois/client', :client => client, :added => true, :attribute => params[:attribute])) %>")
+	<% end %>
+	initialize_observers();
+<% elsif !params[:search] %>
+	$("#overlay").css('display','block');
+	$("#add_client").css('display','block');
+	$("#add_client").html('<%=escape_javascript(render("envois/add_client")) %>');
+	initialize_observers();
+<% else %>
+	$("#results").html('<%=escape_javascript(render("envois/clients")) %>');
+<% end %>

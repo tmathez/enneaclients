@@ -1,0 +1,15 @@
+<% if params[:facturation] == "2" %>
+	$("#overlay").css('display','block');
+	$("#facturer").css('display','block');
+	$("#facturer").html('<%=escape_javascript(render("evenements/facturer", :evenement => @evenement)) %>');
+	initialize_observers();
+<% else %>
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').parent().parent().css('display','none');
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').attr('id','');
+	$('#facturer_evenements').prepend("<%=escape_javascript(render('facture', :evenement => @evenement))%>");
+	$('#evenement_<%=escape_javascript(params[:id].to_s)%>').parent().parent().effect('highlight', {}, 3000);
+	// On recalcule les totaux facturés et à facturer
+	replaceCounts($("#count_facturer"),$("#count_factures"));
+		
+	initialize_observers();
+<% end %>

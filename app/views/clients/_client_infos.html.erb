@@ -1,0 +1,54 @@
+<div class="show_client" style="border-bottom:0">
+    <div class="general">
+	  <p style="width:30%;float:left">
+	    <label>Personne de contact</label><br/>
+	    <%=@client.contact.blank? ? "<span class='light'>Non sp&eacute;cifi&eacute;e</span>".html_safe : @client.contact %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Rue</label><br/>
+	    <%=e @client.rue,true %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <label>NPA / Localit&eacute;</label><br/>
+	    <%=e @client.npa %> <%=e @client.lieu %> <%="(#{@client.canton})" if !@client.canton.blank? %>
+	  </p>
+	  <p style="width:15%;float:left">
+	    <label>T&eacute;l&eacute;phone</label><br/>
+	    <%=e @client.tel %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Fax</label><br/>
+	    <%=e @client.fax %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Natel</label><br/>
+	    <%=e @client.natel %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <label>Email</label><br/>
+	    <%=e @client.email %>
+	  </p>
+	  <p style="width:15%;float:left">
+	    <label>Site Internet</label><br/>
+	    <%=e @client.web %>
+	  </p>
+  </div>
+</div>
+<div class="show secteurs">
+	<h2>Domaine(s) d'activités</h2>
+	<div id="secteurs">
+		<% for secteur in @client.secteurs %>
+			<p><%=secteur.description %></p>
+		<% end %>
+		<% if @client.secteurs.length == 0 %><p class="light">Aucun domaine d'activité.</p><% end %>
+	</div>
+</div>
+<div class="secteurs interesse_par">
+	<h2>Intéressé par</h2>
+	<div id="secteurs">
+		<% for interet in @client.interets %>
+			<p><%=interet.description %></p>
+		<% end %>
+		<% if @client.interets.length == 0 %><p class="light">Aucun intérêt particulier.</p><% end %>
+	</div>
+</div>

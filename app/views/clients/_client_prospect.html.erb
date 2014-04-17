@@ -1,0 +1,12 @@
+<tr>
+	<td><%=link_to client.nom, client_path(client) %></td>
+	<td><%=client.contact %></td>
+	<td><%=client.tel %></td>
+	<td></td>
+	<td style="text-align:center">
+		<%= link_to '<img src="/images/edit.png" title="Modifier" />'.html_safe, edit_client_path(client) %>
+	</td>
+	<td style="text-align:center;border-width:0">
+		<%= link_to '<img src="/images/delete.gif" title="Supprimer" />'.html_safe, client, :confirm => 'Êtes-vous sûr?', :method => :delete %>
+	</td>
+</tr>

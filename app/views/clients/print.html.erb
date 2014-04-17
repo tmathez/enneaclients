@@ -1,0 +1,57 @@
+
+<table id="list_clients">
+	<thead>
+		<tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+		<tr><th colspan="4"><h1>Liste des clients au <%=Date.today.strftime("%d.%m.%Y") %></h1></th></tr>
+	</thead>
+	<tbody>
+<% for client in @clients %>
+		<tr style="border-top:1px solid #000">
+			<td style="padding-top:10px"><strong><%=client.nom %></strong></td>
+			<td style="padding-top:10px">
+				<% if client.sorba_programme %>
+					<strong>Client SORBA n° <%=client.numero.to_s %></strong>
+				<% else %>
+					<span>Ce client n'est pas un client SORBA</span>
+				<% end %>
+			</td>
+			<td style="padding-top:10px">
+				<% if client.enneasoft_client %>
+					<strong>Client enneasoft n° <%=client.numero_enneasoft.to_s %> </strong>
+				<% else %>
+					<span>Ce client n'est pas un client enneasoft</span>
+				<% end %>
+			</td>
+			<td rowspan="4" style="padding-top:10px">
+				<%=!client.autres_produits ? "<span>Aucun produit supplémentaire</span>".html_safe : "<strong>Autres produits :</strong> #{client.autre.to_s}".html_safe %><br/>
+				<%=client.remarques.nil? ? "<span>Aucune remarque</span>".html_safe : "<strong>Remarques :</strong><br/> #{RedCloth.new(client.remarques.to_s).to_html}".html_safe %>
+			</td>
+		</tr>
+		<tr>
+			<td><%=client.rue %></td>
+			<td class="<%=client.sorba_programme.to_s %>">Version : <strong><%=client.version_sorba.to_s %></strong></td>
+			<td class="<%=client.enneasoft_client.to_s %>">
+				<label class="label_<%=client.enneascanningSorba.to_s %>">enneascanningSorba<span>, avec la version <%=client.version_esorba.to_f %> </span> </label>
+			</td>
+		</tr>
+		<tr>
+			<td><%=client.npa.to_s + " " + client.lieu.to_s %></td>
+			<td class="<%=client.sorba_programme.to_s %>">
+				<label class="label_<%=client.asp_client.to_s %>">Client ASP<span>
+			</td>
+			<td class="<%=client.enneasoft_client.to_s %>">
+				<label class="label_<%=client.enneascanningPdf.to_s %>">enneascanningPDF<span>, avec la version <%=client.version_epdf.to_f %> et  <%=client.nb_licences.to_s %> licences</span></label>
+			</td>
+		</tr>
+		<tr style="border-bottom:1px solid #000;padding-bottom:10px">
+			<td style="padding-bottom:10px"><%=client.tel.to_s %></td>
+			<td style="padding-bottom:10px" class="<%=client.sorba_programme.to_s %>">
+				<label class="label_<%=client.sorba.to_s %>">Contrat maintenance<span>
+			</td>
+			<td style="padding-bottom:10px" class="<%=client.enneasoft_client.to_s %>">
+				<label class="label_<%=client.enneasoft.to_s %>">Contrat maintenance<span>
+			</td>
+		</tr>
+<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,112 @@
+<h1 class="title_left" style="margin:0"><%=h @client.nom %></h1>
+<h2 class="title_right">
+	<%= link_to('Gérer les licences', client_licences_path(@client)) + " |" if @client.version_epdf.to_i >= 3 %>
+	<%= link_to 'Modifier ce client', edit_client_path(@client) %>
+</h2>
+<div class="show_client" style="border-bottom:0">
+    <div class="general">
+	  <p style="width:30%;float:left">
+	    <label>Personne de contact</label><br/>
+	    <%=@client.contact.blank? ? "<span class='light'>Non sp&eacute;cifi&eacute;e</span>".html_safe : @client.contact %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Rue</label><br/>
+	    <%=e @client.rue,true %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <label>NPA / Localit&eacute;</label><br/>
+	    <%=e @client.npa %> <%=e @client.lieu %> <%="(#{@client.canton})" if !@client.canton.blank? %>
+	  </p>
+	  <p style="width:15%;float:left">
+	    <label>T&eacute;l&eacute;phone</label><br/>
+	    <%=e @client.tel %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Fax</label><br/>
+	    <%=e @client.fax %>
+	  </p>
+	  <p style="width:30%;float:left">
+	    <label>Natel</label><br/>
+	    <%=e @client.natel %>
+	  </p>
+	  <p style="width:25%;float:left">
+	    <label>Email</label><br/>
+	    <%=e @client.email %>
+	  </p>
+	  <p style="width:15%;float:left">
+	    <label>Site Internet</label><br/>
+	    <%=e @client.web %>
+	  </p>
+  </div>
+  <div class="no_support <%=@client.no_support.to_s %>">
+  	<p>
+  		<%=@client.no_support ? "Les supports pour ce client sont actuellement bloqués." : "Les supports pour ce client sont autorisés." %>
+	</p>    
+  </div>
+  <div class="is_inactif <%=@client.inactif.to_s %>">
+	<p>
+	 	<%=@client.inactif ? "Ce client est inactif." : "Ce client est actif." %>
+ 	</p>    
+  </div>
+  <div class="client_sorba <%='pas_client' if @client.numero.nil? %>">
+  	<div class="first_row">
+  		<div><strong><%=@client.numero.nil? ? "Pas client SORBA." : "Client SORBA" %></strong></div>
+  		<div><label>Numéro de client</label></div>
+  		<div><label>Version de SORBA</label></div>
+  		<div>&nbsp;</div>
+  		<div><label class="label_<%=@client.asp_client.to_s %>">Client ASP</label></div>
+  	</div>
+  	<div class="second_row">
+  		<div>&nbsp;</div>
+  		<div><%=@client.numero %></div>
+  		<div><%=e @client.version_sorba.to_s, false %></div>
+  		<div>&nbsp;</div>
+  		<div><label class="label_<%=@client.sorba.to_s %>">Contrat maintenance</label></div>
+  	</div>
+  </div>
+  <div class="client_enneasoft <%='pas_client' if @client.numero_enneasoft.nil? %>" <%="style='height:65px'" if @client.autres_produits %>>
+	<div class="first_row">
+		<div><strong><%=@client.numero_enneasoft.nil? ? "Pas client enneasoft." : "Client enneasoft" %></strong></div>
+		<div><label>Numéro de client</label></div>
+		<div><label>enneascanningSORBA</label></div>
+		<div><label>enneascanningPDF</label></div>
+		<div><label class="label_<%=@client.enneascanning_ts.to_s %>">Travail en TS <span class="<%='hidden' if !@client.enneascanning_ts == true %>">avec <%=@client.nb_licences_ts %> licence(s)</span></label></div>
+	</div>
+	<div class="second_row">
+		<div>&nbsp;</div>
+		<div><%=@client.numero_enneasoft %></div>
+		<div>
+			<%=imgBool @client.enneascanningSorba,true %><%=@client.enneascanningSorba ? ", avec la version #{@client.version_esorba.to_f}" : "" %>
+		</div>
+		<div>
+			<%=imgBool @client.enneascanningPdf,true %><%=@client.enneascanningPdf ? ", avec la version #{@client.version_epdf.to_f} et #{@client.nb_licences} licence(s)" : "" %>
+		</div>
+		<div><label class="label_<%=@client.enneasoft.to_s %>">Contrat maintenance</label></div>
+	</div>
+	<div class="third_row" <%="style='display:none'" if !@client.autres_produits %>>
+		<div>&nbsp;</div>
+		<div>
+			Autres produits / services enneasoft pour ce client :
+			<label><%=@client.autre %></label>
+		</div>
+	</div>
+  </div>
+</div>
+<% if @client.version_epdf.to_f >= 2 %>
+	<h2><% up_to_date(@client) %></h2>
+<% end %>
+<% if @client.version_epdf.to_f >= 3 %>
+	<h1>Serial : <%=@client.serial.to_s %></h1>
+<% end %>
+<label style="font-size:1.2em;<%="display:none" if @client.remarques.nil? %>">Remarques</label><br/>
+<div class="client_remarques" <%="style='display:none'" if @client.remarques.nil? %>>
+	<%=RedCloth.new(@client.remarques.to_s).to_html.html_safe %>
+</div>
+<hr style="border:0;border-bottom:1px dotted #CCC;clear:both;margin-bottom:10px;<%="margin-top:-20px" if @client.remarques.nil? %>" />
+<h2 class="title_left">Evenements de ce client au <%=Date.today.strftime("%d.%m.%Y")%></h2>
+<h2 class="title_right"><%= link_to 'Nouvel evenement', new_client_evenement_path(@client) %></h2>
+<div style="clear:both;margin-top:40px">
+	<%=render "evenements/evenements", :pending => @pending, :solved => @solved, :from_client => true, :solved_length => @solved.length %>
+</div>
+<div id="overlay"></div>
+<div id="solution" style="background:#FFF;border:2px solid #EEE;padding:20px"></div>

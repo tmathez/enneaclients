@@ -1,0 +1,25 @@
+<%= form_for @client do |f| %>
+<h1 class="title_left">Modifier un client</h1>
+<h1 class="title_right" style="margin-top:8px">
+	<%=link_to "", "#", :class => "switch interesse#{' on' if !@client.interesse}" %>
+	<%=f.hidden_field :interesse %>
+</h1>
+<div class="edit_client" style="clear:both">
+  <% if session[:langue] != "de" && request.subdomain != "prospect" %>
+  <div class="no_support">
+    <p><%= f.check_box :no_support %> <%= f.label :no_support, "Les supports pour ce client sont actuellement bloqués." %></p>    
+  </div>
+  <div class="is_inactif">
+    <p><%= f.check_box :inactif %> <%= f.label :inactif, "Ce client est inactif." %></p>    
+  </div>
+  <% end %>
+  <%=render "form", :f => f %>
+  <hr style="border:0;clear:both">
+  <p class="title_left delete_record">
+	<img src="/images/delete.gif" title="Supprimer" /> <%= link_to 'Supprimer ce client', @client, :confirm => 'Êtes-vous sûr?', :method => :delete %>
+  </p>
+  <p style="text-align:right;margin-right:10px">
+    <%= f.submit 'Modifier' %> ou <%=link_to "Annuler", clients_path %>
+  </p>
+</div>
+<% end %>

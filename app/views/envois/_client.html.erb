@@ -1,0 +1,17 @@
+<% if !@mailing.nil? %>
+<tr id="<%=client.id.to_s %>" class="<%='disabled' if client.has_suivi_for?(@mailing.id) %>">
+	<td><%=check_box_tag "#{attribute}[client_ids][]", client.id, true, :disabled => client.has_suivi_for?(@mailing.id) %></td>
+	<td style="border-right:0"><%=client.nom %></td>
+	<td><%="Non modifiable - ce client dispose d'un suivi pour cet envoi" if client.has_suivi_for?(@mailing.id) %></td>
+	<td><%=client.npa %></td>
+	<td style="border-right:0"><%=client.lieu %></td>
+</tr>
+<% else %>
+<tr id="<%=client.id.to_s %>" class="<%='added' if !added.nil? %>">
+	<td><%=check_box_tag "#{attribute}[client_ids][]", client.id, true %></td>
+	<td><%=client.nom %></td>
+	<td><%="Client ajouté manuellement" if !added.nil? %>&nbsp;</td>
+	<td><%=client.npa %></td>
+	<td style="border-right:0"><%=client.lieu %></td>
+</tr>
+<% end %>

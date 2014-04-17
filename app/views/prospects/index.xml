@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xml:lang="fr" xmlns="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:tel="http://tel.search.ch/api/spec/result/1.0/">
+  <id>http://tel.search.ch/api/90f8e9b09ca98d09a936f74ef962ffd7/4c05fe5e21913af2bbe49c539b6a987d</id>
+  <title type="text">tel.search.ch API Search Results</title>
+  <generator version="1.0" uri="http://tel.search.ch">tel.search.ch</generator>
+  <updated>2012-07-06T02:00:00Z</updated>
+  <link href="http://tel.search.ch/result.html?was=restaurant" rel="alternate" type="text/html" />
+  <link href="http://tel.search.ch/api/?was=restaurant&amp;key=90f8e9b09ca98d09a936f74ef962ffd7" type="application/atom+xml" rel="self" />
+  <openSearch:totalResults>170</openSearch:totalResults>
+  <openSearch:startIndex>1</openSearch:startIndex>
+  <openSearch:itemsPerPage>200</openSearch:itemsPerPage>
+  <openSearch:Query role="request" searchTerms="restaurant " startPage="1" />
+  <openSearch:Image height="1" width="1" type="image/gif">http://www.search.ch/audit/CP/tel/fr/api</openSearch:Image>
+  <entry>
+    <id>urn:uuid:f98c06560d509ee0</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">01 Bar</title>
+    <content type="text">01 Bar
+    Köngengasse 2
+    8001 Zürich/ZH
+    *043 268 00 66</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/koengengasse-2/01-bar" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/01-Bar.vcf?key=f98c06560d509ee0" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=f98c06560d509ee0" rel="edit" type="text/html" />
+    <tel:pos>1</tel:pos>
+    <tel:id>f98c06560d509ee0</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>01 Bar</tel:name>
+    <tel:street>Köngengasse</tel:street>
+    <tel:streetno>2</tel:streetno>
+    <tel:zip>8001</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Bar</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Café</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41432680066</tel:phone>
+    <tel:extra type="email">info@01bar.ch</tel:extra>
+    <tel:extra type="website">http://www.01bar.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:cfc533d91b034e79</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">0815 Productions AG</title>
+    <content type="text">0815 Productions AG
+    Lintheschergasse 23
+    8001 Zürich/ZH
+    *044 211 08 15</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/lintheschergasse-23/0815-productions-ag-2" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/0815-Productions-AG.vcf?key=cfc533d91b034e79" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=cfc533d91b034e79" rel="edit" type="text/html" />
+    <tel:pos>2</tel:pos>
+    <tel:id>cfc533d91b034e79</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>0815 Productions AG</tel:name>
+    <tel:street>Lintheschergasse</tel:street>
+    <tel:streetno>23</tel:streetno>
+    <tel:zip>8001</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Bar</tel:category>
+    <tel:category>Events</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Organisation d'événements</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41442110815</tel:phone>
+    <tel:extra type="Fax">+41442110814</tel:extra>
+    <tel:extra type="website">http://www.0815.dj</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:f8b8fb150de2a868</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">0815</title>
+    <content type="text">0815
+    Kreuzstrasse 26
+    8008 Zürich/ZH
+    *044 242 08 15</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/kreuzstrasse-26/0815" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/0815.vcf?key=f8b8fb150de2a868" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=f8b8fb150de2a868" rel="edit" type="text/html" />
+    <tel:pos>3</tel:pos>
+    <tel:id>f8b8fb150de2a868</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>0815</tel:name>
+    <tel:street>Kreuzstrasse</tel:street>
+    <tel:streetno>26</tel:streetno>
+    <tel:zip>8008</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Bar</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Organisation d'événements</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41442420815</tel:phone>
+    <tel:extra type="Fax">+41442420814</tel:extra>
+    <tel:extra type="website">http://www.0815.dj</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:6c28b929c5ac09ef</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">1001 Freizeit AG</title>
+    <content type="text">1001 Freizeit AG
+    Restaurant Sport Nightlife
+    Quellenstrasse 39
+    8580 Amriswil/TG
+    *071 411 67 77</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/amriswil/quellenstrasse-39/1001-freizeit-ag" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/1001-Freizeit-AG.vcf?key=6c28b929c5ac09ef" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=6c28b929c5ac09ef" rel="edit" type="text/html" />
+    <tel:pos>4</tel:pos>
+    <tel:id>6c28b929c5ac09ef</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>1001 Freizeit AG</tel:name>
+    <tel:occupation>Restaurant Sport Nightlife</tel:occupation>
+    <tel:street>Quellenstrasse</tel:street>
+    <tel:streetno>39</tel:streetno>
+    <tel:zip>8580</tel:zip>
+    <tel:city>Amriswil</tel:city>
+    <tel:canton>TG</tel:canton>
+    <tel:category>Centre sportif</tel:category>
+    <tel:category>Tennis</tel:category>
+    <tel:category>Discothèque</tel:category>
+    <tel:category>Badminton</tel:category>
+    <tel:category>Bowling</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Centre de tennis</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41714116777</tel:phone>
+    <tel:extra type="Fax">+41714116732</tel:extra>
+    <tel:extra type="website">http://www.sport1001.ch</tel:extra>
+    <tel:businesslink>http://tel.search.ch/amriswil/quellenstrasse-39/1001-freizeit-ag</tel:businesslink>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:66ad85b3ec29dd46</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">1001 GmbH</title>
+    <content type="text">1001 GmbH
+    Niederdorfstrasse 4
+    8001 Zürich/ZH
+    044 252 90 60</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/niederdorfstrasse-4/1001-gmbh" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/1001-GmbH.vcf?key=66ad85b3ec29dd46" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=66ad85b3ec29dd46" rel="edit" type="text/html" />
+    <tel:pos>5</tel:pos>
+    <tel:id>66ad85b3ec29dd46</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>1001 GmbH</tel:name>
+    <tel:street>Niederdorfstrasse</tel:street>
+    <tel:streetno>4</tel:streetno>
+    <tel:zip>8001</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Restaurants par spécialité</tel:category>
+    <tel:category>Turc, cuisine</tel:category>
+    <tel:phone>+41442529060</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:a6f11548ffe0457f</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">100 Bar und Restaurant</title>
+    <content type="text">100 Bar und Restaurant
+    Güterstrasse 100
+    4053 Basel/BS
+    061 225 90 15</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/basel/gueterstrasse-100/100-bar-und-restaurant" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/100-Bar-und-Restaurant.vcf?key=a6f11548ffe0457f" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=a6f11548ffe0457f" rel="edit" type="text/html" />
+    <tel:pos>6</tel:pos>
+    <tel:id>a6f11548ffe0457f</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>100 Bar und Restaurant</tel:name>
+    <tel:street>Güterstrasse</tel:street>
+    <tel:streetno>100</tel:streetno>
+    <tel:zip>4053</tel:zip>
+    <tel:city>Basel</tel:city>
+    <tel:canton>BS</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:phone>+41612259015</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:ab89f13b52036ee1</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">13 Etoiles</title>
+    <content type="text">13 Etoiles
+    Andenmatten Carmen
+    3925 Grächen/VS
+    027 956 10 57</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/graechen/-/13-etoiles" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/13-Etoiles.vcf?key=ab89f13b52036ee1" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=ab89f13b52036ee1" rel="edit" type="text/html" />
+    <tel:pos>7</tel:pos>
+    <tel:id>ab89f13b52036ee1</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>13 Etoiles</tel:name>
+    <tel:subname>Andenmatten Carmen</tel:subname>
+    <tel:zip>3925</tel:zip>
+    <tel:city>Grächen</tel:city>
+    <tel:canton>VS</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Tea-Room</tel:category>
+    <tel:phone>+41279561057</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:c3728bc57a8658b7</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">13 Etoiles motel</title>
+    <content type="text">13 Etoiles motel
+    Savioz Gérard
+    rest.
+    route du Simplon 69
+    1958 St-Léonard/VS
+    *027 203 26 26</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/st-leonard/route-du-simplon-69/13-etoiles-motel" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/13-Etoiles-motel.vcf?key=c3728bc57a8658b7" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=c3728bc57a8658b7" rel="edit" type="text/html" />
+    <tel:pos>8</tel:pos>
+    <tel:id>c3728bc57a8658b7</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>13 Etoiles motel</tel:name>
+    <tel:subname>Savioz Gérard</tel:subname>
+    <tel:occupation>rest.</tel:occupation>
+    <tel:street>route du Simplon</tel:street>
+    <tel:streetno>69</tel:streetno>
+    <tel:zip>1958</tel:zip>
+    <tel:city>St-Léonard</tel:city>
+    <tel:canton>VS</tel:canton>
+    <tel:category>Motel</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41272032626</tel:phone>
+    <tel:extra type="Fax">+41272036261</tel:extra>
+    <tel:extra type="email">13etoiles@netplus.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:b049c6dd20c294da</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">16 Art Bar Restaurant</title>
+    <content type="text">16 Art Bar Restaurant
+    Nik + Simon Buchs
+    Mittelgässli 16
+    3792 Saanen/BE
+    *033 748 16 16</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/saanen/mittelgaessli-16/16-art-bar-restaurant" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/16-Art-Bar-Restaurant.vcf?key=b049c6dd20c294da" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=b049c6dd20c294da" rel="edit" type="text/html" />
+    <tel:pos>9</tel:pos>
+    <tel:id>b049c6dd20c294da</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>16 Art Bar Restaurant</tel:name>
+    <tel:subname>Nik + Simon Buchs</tel:subname>
+    <tel:street>Mittelgässli</tel:street>
+    <tel:streetno>16</tel:streetno>
+    <tel:zip>3792</tel:zip>
+    <tel:city>Saanen</tel:city>
+    <tel:canton>BE</tel:canton>
+    <tel:category>Bar</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41337481616</tel:phone>
+    <tel:extra type="email">contact@16eme.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:c7b07ce2fb06f83a</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">1733-Weinlokal St. Gallen</title>
+    <content type="text">1733-Weinlokal St. Gallen
+    Goliathgasse 29
+    9000 St. Gallen/SG
+    071 244 67 09</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/st-gallen/goliathgasse-29/1733-weinlokal-st-gallen" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/1733-Weinlokal-St-Gallen.vcf?key=c7b07ce2fb06f83a" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=c7b07ce2fb06f83a" rel="edit" type="text/html" />
+    <tel:pos>10</tel:pos>
+    <tel:id>c7b07ce2fb06f83a</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>1733-Weinlokal St. Gallen</tel:name>
+    <tel:street>Goliathgasse</tel:street>
+    <tel:streetno>29</tel:streetno>
+    <tel:zip>9000</tel:zip>
+    <tel:city>St. Gallen</tel:city>
+    <tel:canton>SG</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:phone>+41712446709</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:0b7c0a2acb50419a</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">1814</title>
+    <content type="text">1814
+    gerente Antonini Renzo
+    centro alle Bolle
+    via Saleggi 5
+    6512 Giubiasco/TI
+    *091 857 86 79</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/giubiasco/via-saleggi-5/1814" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/1814.vcf?key=0b7c0a2acb50419a" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=0b7c0a2acb50419a" rel="edit" type="text/html" />
+    <tel:pos>11</tel:pos>
+    <tel:id>0b7c0a2acb50419a</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>1814</tel:name>
+    <tel:occupation>gerente Antonini Renzo</tel:occupation>
+    <tel:street>via Saleggi</tel:street>
+    <tel:streetno>5</tel:streetno>
+    <tel:zip>6512</tel:zip>
+    <tel:city>Giubiasco</tel:city>
+    <tel:canton>TI</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Vinothèque</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41918578679</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:9418369be101e48e</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">1871 Essen. Trinken. Sein.</title>
+    <content type="text">1871 Essen. Trinken. Sein.
+    im Grand Hotel National
+    Haldenstrasse 4
+    6006 Luzern/LU
+    *041 422 18 71</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/luzern/haldenstrasse-4/1871-essen-trinken-sein" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/1871-Essen-Trinken-Sein.vcf?key=9418369be101e48e" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=9418369be101e48e" rel="edit" type="text/html" />
+    <tel:pos>12</tel:pos>
+    <tel:id>9418369be101e48e</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>1871 Essen. Trinken. Sein.</tel:name>
+    <tel:occupation>im Grand Hotel National</tel:occupation>
+    <tel:street>Haldenstrasse</tel:street>
+    <tel:streetno>4</tel:streetno>
+    <tel:zip>6006</tel:zip>
+    <tel:city>Luzern</tel:city>
+    <tel:canton>LU</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Bar</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41414221871</tel:phone>
+    <tel:extra type="email">restaurant@1871.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:34f1bf267a4a9a6b</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">2000 Mètres</title>
+    <content type="text">2000 Mètres
+    Zufferey Daniel
+    3961 Chandolin/VS
+    027 475 11 29</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/chandolin/-/2000-metres" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/2000-Metres.vcf?key=34f1bf267a4a9a6b" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=34f1bf267a4a9a6b" rel="edit" type="text/html" />
+    <tel:pos>13</tel:pos>
+    <tel:id>34f1bf267a4a9a6b</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>2000 Mètres</tel:name>
+    <tel:maidenname>Krull</tel:maidenname>
+    <tel:subname>Zufferey Daniel</tel:subname>
+    <tel:zip>3961</tel:zip>
+    <tel:city>Chandolin</tel:city>
+    <tel:canton>VS</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:phone>+41274751129</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:a9dbf884a06ec4b5</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">20/20 by mövenpick Wein Restaurant</title>
+    <content type="text">20/20 by mövenpick Wein Restaurant
+    Öffnungszeiten:  Di- Sa 11.30-14.30h Sa 18-22h
+    Nüschelerstrasse 1
+    8001 Zürich/ZH
+    *044 211 45 70</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/nueschelerstrasse-1/20-20-by-moevenpick-wein-restaurant" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/2020-by-moevenpick-Wein-Restaurant.vcf?key=a9dbf884a06ec4b5" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=a9dbf884a06ec4b5" rel="edit" type="text/html" />
+    <tel:pos>14</tel:pos>
+    <tel:id>a9dbf884a06ec4b5</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>20/20 by mövenpick Wein Restaurant</tel:name>
+    <tel:occupation>Öffnungszeiten:  Di- Sa 11.30-14.30h Sa 18-22h</tel:occupation>
+    <tel:street>Nüschelerstrasse</tel:street>
+    <tel:streetno>1</tel:streetno>
+    <tel:zip>8001</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41442114570</tel:phone>
+    <tel:extra type="email">2020-restaurant@moevenpick.com</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:22aa9160e95f654b</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3100 Kulmhotel Gornergrat</title>
+    <content type="text">3100 Kulmhotel Gornergrat
+    Station Gornergrat
+    3920 Zermatt/VS
+    *027 966 64 00</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zermatt/-/3100-kulmhotel-gornergrat" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3100-Kulmhotel-Gornergrat.vcf?key=22aa9160e95f654b" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=22aa9160e95f654b" rel="edit" type="text/html" />
+    <tel:pos>15</tel:pos>
+    <tel:id>22aa9160e95f654b</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3100 Kulmhotel Gornergrat</tel:name>
+    <tel:street>Station Gornergrat</tel:street>
+    <tel:zip>3920</tel:zip>
+    <tel:city>Zermatt</tel:city>
+    <tel:canton>VS</tel:canton>
+    <tel:category>Hôtel</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Montagne, auberge de</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41279666400</tel:phone>
+    <tel:extra type="Fax">+41279666404</tel:extra>
+    <tel:extra type="website">http://www.gornergrat-kulm.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:41627ce3fa1ac5c0</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3.2.1 hubert erni ag</title>
+    <content type="text">3.2.1 hubert erni ag
+    Gewerbestrasse 9
+    6330 Cham/ZG
+    *041 710 40 60</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/cham/gewerbestrasse-9/3-2-1-hubert-erni-ag" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/321-hubert-erni-ag.vcf?key=41627ce3fa1ac5c0" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=41627ce3fa1ac5c0" rel="edit" type="text/html" />
+    <tel:pos>16</tel:pos>
+    <tel:id>41627ce3fa1ac5c0</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3.2.1 hubert erni ag</tel:name>
+    <tel:street>Gewerbestrasse</tel:street>
+    <tel:streetno>9</tel:streetno>
+    <tel:zip>6330</tel:zip>
+    <tel:city>Cham</tel:city>
+    <tel:canton>ZG</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Traiteur réceptions à domicile</tel:category>
+    <tel:category>Hôtellerie-restauration</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41417104060</tel:phone>
+    <tel:extra type="Fax">+41417104064</tel:extra>
+    <tel:extra type="Mobile">+41794404273</tel:extra>
+    <tel:extra type="email">contact@3-2-1.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:16e130a3d2697b34</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 Brüder Ristorante Pizzeria GmbH</title>
+    <content type="text">3 Brüder Ristorante Pizzeria GmbH
+    Millenium
+    Limmatstrasse 125
+    8005 Zürich/ZH
+    *044 273 28 48</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/zuerich/limmatstrasse-125/3-brueder-ristorante-pizzeria-gmbh" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-Brueder-Ristorante-Pizzeria-GmbH.vcf?key=16e130a3d2697b34" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=16e130a3d2697b34" rel="edit" type="text/html" />
+    <tel:pos>17</tel:pos>
+    <tel:id>16e130a3d2697b34</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 Brüder Ristorante Pizzeria GmbH</tel:name>
+    <tel:occupation>Millenium</tel:occupation>
+    <tel:street>Limmatstrasse</tel:street>
+    <tel:streetno>125</tel:streetno>
+    <tel:zip>8005</tel:zip>
+    <tel:city>Zürich</tel:city>
+    <tel:canton>ZH</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Take Away</tel:category>
+    <tel:category>Pizza Take Away</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41442732848</tel:phone>
+    <tel:extra type="Fax">+41442732843</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:c406fe57172f3e87</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3dosha ayurveda gmbh</title>
+    <content type="text">3dosha ayurveda gmbh
+    ayurvedisch, indisch, vegetarisch Mo-Fr 11-14h und 17.30-22h, Sa ab 17.30-22h
+    Moserstrasse 25
+    3014 Bern/BE
+    *031 331 13 73</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/bern/moserstrasse-25/3dosha-ayurveda-gmbh" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3dosha-ayurveda-gmbh.vcf?key=c406fe57172f3e87" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=c406fe57172f3e87" rel="edit" type="text/html" />
+    <tel:pos>18</tel:pos>
+    <tel:id>c406fe57172f3e87</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3dosha ayurveda gmbh</tel:name>
+    <tel:occupation>ayurvedisch, indisch, vegetarisch Mo-Fr 11-14h und 17.30-22h, Sa ab 17.30-22h</tel:occupation>
+    <tel:street>Moserstrasse</tel:street>
+    <tel:streetno>25</tel:streetno>
+    <tel:zip>3014</tel:zip>
+    <tel:city>Bern</tel:city>
+    <tel:canton>BE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41313311373</tel:phone>
+    <tel:extra type="email">ks@3dosha.ch</tel:extra>
+    <tel:extra type="website">http://www.3dosha.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:27bcc527dfc1e5ec</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 Fische</title>
+    <content type="text">3 Fische
+    Sven und Patrizia Rindlisbacher (Girsberger)
+    Hauptstrasse 29
+    2576 Lüscherz/BE
+    *032 338 12 21</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/luescherz/hauptstrasse-29/3-fische" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-Fische.vcf?key=27bcc527dfc1e5ec" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=27bcc527dfc1e5ec" rel="edit" type="text/html" />
+    <tel:pos>19</tel:pos>
+    <tel:id>27bcc527dfc1e5ec</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 Fische</tel:name>
+    <tel:subname>Sven und Patrizia Rindlisbacher (Girsberger)</tel:subname>
+    <tel:street>Hauptstrasse</tel:street>
+    <tel:streetno>29</tel:streetno>
+    <tel:zip>2576</tel:zip>
+    <tel:city>Lüscherz</tel:city>
+    <tel:canton>BE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41323381221</tel:phone>
+    <tel:extra type="Fax">+41323381203</tel:extra>
+    <tel:extra type="email">3.fische@bluewin.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:67778fa723fdfeef</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 pièces &amp; demi</title>
+    <content type="text">3 pièces &amp; demi
+    Faubourg de Hôpital 3
+    2000 Neuchâtel/NE
+    *032 725 24 23</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/neuchatel/faubourg-de-hopital-3/3-pieces-demi" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-pieces--demi.vcf?key=67778fa723fdfeef" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=67778fa723fdfeef" rel="edit" type="text/html" />
+    <tel:pos>20</tel:pos>
+    <tel:id>67778fa723fdfeef</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 pièces &amp; demi</tel:name>
+    <tel:street>Faubourg de Hôpital</tel:street>
+    <tel:streetno>3</tel:streetno>
+    <tel:zip>2000</tel:zip>
+    <tel:city>Neuchâtel</tel:city>
+    <tel:canton>NE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Bar</tel:category>
+    <tel:category>Café</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41327252423</tel:phone>
+    <tel:extra type="website">Nouveautés: http://www.facebook.com/pages/3-pi%C3%A9ces-12-lounge-bar/252906448089932?sk=wall</tel:extra>
+    <tel:businesslink>http://tel.search.ch/neuchatel/faubourg-de-hopital-3/3-pieces-demi</tel:businesslink>
+    <tel:copyright>Données de search.ch</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:6f6a916b57c9dd17</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 R Bar ristorante</title>
+    <content type="text">3 R Bar ristorante
+    via Giovanni Ferri 3
+    6900 Lugano/TI
+    *091 971 28 23</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/lugano/via-giovanni-ferri-3/3-r-bar-ristorante" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-R-Bar-ristorante.vcf?key=6f6a916b57c9dd17" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=6f6a916b57c9dd17" rel="edit" type="text/html" />
+    <tel:pos>21</tel:pos>
+    <tel:id>6f6a916b57c9dd17</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 R Bar ristorante</tel:name>
+    <tel:street>via Giovanni Ferri</tel:street>
+    <tel:streetno>3</tel:streetno>
+    <tel:zip>6900</tel:zip>
+    <tel:city>Lugano</tel:city>
+    <tel:canton>TI</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41919712823</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:2ab597ddb840fb19</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 Suisses</title>
+    <content type="text">3 Suisses
+    Rey Isabelle
+    2732 Saicourt/BE
+    *032 481 20 17</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/saicourt/-/3-suisses" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-Suisses.vcf?key=2ab597ddb840fb19" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=2ab597ddb840fb19" rel="edit" type="text/html" />
+    <tel:pos>22</tel:pos>
+    <tel:id>2ab597ddb840fb19</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 Suisses</tel:name>
+    <tel:subname>Rey Isabelle</tel:subname>
+    <tel:zip>2732</tel:zip>
+    <tel:city>Saicourt</tel:city>
+    <tel:canton>BE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41324812017</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:39e21b1fe80380be</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">3 Suisses</title>
+    <content type="text">3 Suisses
+    Udry Laurent
+    1964 Conthey/VS
+    *027 346 11 95</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/conthey/-/3-suisses" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/3-Suisses.vcf?key=39e21b1fe80380be" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=39e21b1fe80380be" rel="edit" type="text/html" />
+    <tel:pos>23</tel:pos>
+    <tel:id>39e21b1fe80380be</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>3 Suisses</tel:name>
+    <tel:subname>Udry Laurent</tel:subname>
+    <tel:zip>1964</tel:zip>
+    <tel:city>Conthey</tel:city>
+    <tel:canton>VS</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41273461195</tel:phone>
+    <tel:extra type="website">http://www.les3suisses.net</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:edfd474f4fd4b4c4</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">4,5,6 cueillir des cerises</title>
+    <content type="text">4,5,6 cueillir des cerises
+    Laurent Claeysen
+    place Pierre-Gautier 1
+    1223 Cologny/GE
+    *022 735 47 59</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/cologny/place-pierre-gautier-1/4-5-6-cueillir-des-cerises" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/456-cueillir-des-cerises.vcf?key=edfd474f4fd4b4c4" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=edfd474f4fd4b4c4" rel="edit" type="text/html" />
+    <tel:pos>24</tel:pos>
+    <tel:id>edfd474f4fd4b4c4</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>4,5,6 cueillir des cerises</tel:name>
+    <tel:subname>Laurent Claeysen</tel:subname>
+    <tel:street>place Pierre-Gautier</tel:street>
+    <tel:streetno>1</tel:streetno>
+    <tel:zip>1223</tel:zip>
+    <tel:city>Cologny</tel:city>
+    <tel:canton>GE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41227354759</tel:phone>
+    <tel:extra type="email">contact@456-cerises.ch</tel:extra>
+    <tel:extra type="website">http://www.456-cerises.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:027db2dc50b17c46</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">4i-Bar</title>
+    <content type="text">4i-Bar
+    Sinserstrasse 4
+    6330 Cham/ZG
+    *041 780 58 46</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/cham/sinserstrasse-4/4i-bar" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/4i-Bar.vcf?key=027db2dc50b17c46" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=027db2dc50b17c46" rel="edit" type="text/html" />
+    <tel:pos>25</tel:pos>
+    <tel:id>027db2dc50b17c46</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>4i-Bar</tel:name>
+    <tel:street>Sinserstrasse</tel:street>
+    <tel:streetno>4</tel:streetno>
+    <tel:zip>6330</tel:zip>
+    <tel:city>Cham</tel:city>
+    <tel:canton>ZG</tel:canton>
+    <tel:category>Bar</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41417805846</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:c2d4ce82e8baa23c</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">4 Stagioni</title>
+    <content type="text">4 Stagioni
+    ristorante - pizzeria
+    piazza G. Motta 7
+    6612 Ascona/TI
+    091 791 67 07</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/ascona/piazza-g-motta-7/4-stagioni" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/4-Stagioni.vcf?key=c2d4ce82e8baa23c" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=c2d4ce82e8baa23c" rel="edit" type="text/html" />
+    <tel:pos>26</tel:pos>
+    <tel:id>c2d4ce82e8baa23c</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>4 Stagioni</tel:name>
+    <tel:occupation>ristorante - pizzeria</tel:occupation>
+    <tel:street>piazza G. Motta</tel:street>
+    <tel:streetno>7</tel:streetno>
+    <tel:zip>6612</tel:zip>
+    <tel:city>Ascona</tel:city>
+    <tel:canton>TI</tel:canton>
+    <tel:category>Pizzeria</tel:category>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:phone>+41917916707</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:43fe2982fd1a09d2</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">4U Indian Mexican</title>
+    <content type="text">4U Indian Mexican
+    Restaurant &amp; Bar
+    Centralstrasse 6
+    3800 Interlaken/BE
+    *033 822 46 70</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/interlaken/centralstrasse-6/4u-indian-mexican" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/4U-Indian-Mexican.vcf?key=43fe2982fd1a09d2" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=43fe2982fd1a09d2" rel="edit" type="text/html" />
+    <tel:pos>27</tel:pos>
+    <tel:id>43fe2982fd1a09d2</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>4U Indian Mexican</tel:name>
+    <tel:occupation>Restaurant &amp; Bar</tel:occupation>
+    <tel:street>Centralstrasse</tel:street>
+    <tel:streetno>6</tel:streetno>
+    <tel:zip>3800</tel:zip>
+    <tel:city>Interlaken</tel:city>
+    <tel:canton>BE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41338224670</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:39fc4c62d0c9a1e7</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">5</title>
+    <content type="text">5
+    Marino Sasso
+    Altweg 16
+    8500 Frauenfeld/TG
+    *052 720 24 20</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/frauenfeld/altweg-16/5" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/5.vcf?key=39fc4c62d0c9a1e7" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=39fc4c62d0c9a1e7" rel="edit" type="text/html" />
+    <tel:pos>28</tel:pos>
+    <tel:id>39fc4c62d0c9a1e7</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>5</tel:name>
+    <tel:subname>Marino Sasso</tel:subname>
+    <tel:street>Altweg</tel:street>
+    <tel:streetno>16</tel:streetno>
+    <tel:zip>8500</tel:zip>
+    <tel:city>Frauenfeld</tel:city>
+    <tel:canton>TG</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Bar à café</tel:category>
+    <tel:category>Gelateria</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41527202420</tel:phone>
+    <tel:extra type="website">http://www.fuef.ch</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:bd66f27284091ab8</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">5 SIGNORI</title>
+    <content type="text">5 SIGNORI
+    Güterstrasse 183
+    4053 Basel/BS
+    061 361 87 73</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/basel/gueterstrasse-183/5-signori-2" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/5-SIGNORI.vcf?key=bd66f27284091ab8" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=bd66f27284091ab8" rel="edit" type="text/html" />
+    <tel:pos>29</tel:pos>
+    <tel:id>bd66f27284091ab8</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>5 SIGNORI</tel:name>
+    <tel:street>Güterstrasse</tel:street>
+    <tel:streetno>183</tel:streetno>
+    <tel:zip>4053</tel:zip>
+    <tel:city>Basel</tel:city>
+    <tel:canton>BS</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:phone>+41613618773</tel:phone>
+    <tel:extra type="website">http://www.restaurantsignori.ch/</tel:extra>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+  <entry>
+    <id>urn:uuid:1f61f5af4aa3ec8f</id>
+    <updated>2012-07-06T02:00:00Z</updated>
+    <published>2012-07-06T02:00:00Z</published>
+    <title type="text">6ème sens</title>
+    <content type="text">6ème sens
+    Gillard Bernard
+    Snack Bar
+    rue Dancet 20
+    1205 Genève/GE
+    *022 321 51 88</content>
+    <author>
+      <name>tel.search.ch</name>
+    </author>
+    <link href="http://tel.search.ch/geneve/rue-dancet-20/6eme-sens" title="Details" rel="alternate" type="text/html" />
+    <link href="http://tel.search.ch/vcard/6eme-sens.vcf?key=1f61f5af4aa3ec8f" type="text/x-vcard" title="VCard Download" rel="alternate" />
+    <link href="http://tel.search.ch/edit/?id=1f61f5af4aa3ec8f" rel="edit" type="text/html" />
+    <tel:pos>30</tel:pos>
+    <tel:id>1f61f5af4aa3ec8f</tel:id>
+    <tel:type>Organisation</tel:type>
+    <tel:name>6ème sens</tel:name>
+    <tel:subname>Gillard Bernard</tel:subname>
+    <tel:occupation>Snack Bar</tel:occupation>
+    <tel:street>rue Dancet</tel:street>
+    <tel:streetno>20</tel:streetno>
+    <tel:zip>1205</tel:zip>
+    <tel:city>Genève</tel:city>
+    <tel:canton>GE</tel:canton>
+    <tel:category>Café, Restaurant</tel:category>
+    <tel:category>Tea-Room</tel:category>
+    <tel:nopromo>*</tel:nopromo>
+    <tel:phone>+41223215188</tel:phone>
+    <tel:copyright>Données : Swisscom Directories SA</tel:copyright>
+  </entry>
+</feed>

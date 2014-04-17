@@ -1,0 +1,8 @@
+<% if @client.evenements.count > 0 %>
+	
+<% else %>
+	<div class="no_element">
+		Il n'existe encore aucun événement pour ce client<br/>
+		<%=link_to "Ajouter un premier événement", new_client_evenement_path(@client), :class => "add_first" %>
+	</div>
+<% end %>

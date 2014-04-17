@@ -1,0 +1,10 @@
+<h1 class="title_left">Evenements au <%=Date.today.strftime("%d.%m.%Y")%> <span class="print_email" style="<%='display:none' if session[:responsable_id] == "0" || session[:responsable_id].blank? %>">[<%=link_to "Imprimer l'email du jour", :action => :email, :responsable_id => session[:responsable_id], :date_email => Date.today.strftime("%d.%m.%Y") %>]</span></h1>
+<h2 class="title_right"><%= link_to 'Nouvel evenement', new_evenement_path %></h2>
+<p class="search_bar">
+	Afficher les &eacute;v&eacute;nements de <%=select_tag "responsable_filter", options_for_select(select_options(session[:responsable_id])) %>
+</p>
+
+<%=render "evenements", :pending => @pending, :solved => @solved, :from_client => false, :solved_length => @solved_length %>
+<%=link_to "Afficher tous les événements résolus", evenements_path(:limit => 10000), :class => "show_all_solved#{' hidden' if !params[:limit].nil?}", :remote => true %>
+<div id="overlay"></div>
+<div id="solution" style="background:#FFF;border:2px solid #EEE;padding:20px"></div>

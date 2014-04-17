@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: enneaclients_development
+  username: postgres
+  password: frMb7NxTn!OjMep
+  
+production:
+  adapter: postgresql
+  database: enneaclients
+  username: postgres
+  password: frMb7NxTn!OjMep

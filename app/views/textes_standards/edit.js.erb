@@ -1,0 +1,3 @@
+$("#texte_standard").html("<%=escape_javascript(render('edit',:textes_standard => @textes_standard)) %>");
+$("#texte_standard textarea").autogrow();
+$("#texte_standard textarea").trigger('change');

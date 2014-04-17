@@ -1,0 +1,24 @@
+<h1 style="border-bottom:1px dotted #CCC;padding-bottom:5px;margin-bottom:5px;height:25px">
+	Liste Excel des clients
+</h1>
+<div class="edit_event">
+  <%=form_tag "/clients/print_excel.xls", :method => :get do %>
+  <h2><%=check_box_tag "filter_contrats" %> Filtrer par contrat maintenance</h2>
+  <div id="contrats" style="display:none;font-size:1.1em;background:#EEE;border:1px solid #CCC;height:20px;padding:5px;margin-top:5px">
+  	<p style="width:70%;float:left"><%=check_box_tag "contrat_sorba", nil, false %> SORBA</p>
+  	<p style="width:30%;float:left"><%=check_box_tag "contrat_enneasoft", nil, false %> enneasoft</p>
+  </div>
+  <hr style="margin-bottom:0px"/>
+  <h2><%=check_box_tag "filter_products" %> Filtrer par produits</h2>
+  <div id="products" style="display:none;font-size:1.1em;margin:10px 0;background:#EEE;border:1px solid #CCC;height:45px;padding:5px;margin-top:5px">
+	<p style="width:70%;float:left"><%=check_box_tag "sorba", nil, false %> SORBA</p>
+	<p style="width:30%;float:left"><%=check_box_tag "enneascanning", nil, false %> enneascanning</p>
+	<p style="width:70%;float:left"><%=check_box_tag "enneascanning_pdf", nil, false %> enneascanningPDF - version <%=text_field_tag "enneascanning_version", nil, :style => "width:40px" %></p>
+	<p style="width:30%;float:left"><%=check_box_tag "autres", nil, false %> Autres produits</p>
+  </div>
+  <hr/>
+  <p class="footer">
+    <%= submit_tag 'Exporter' %> ou <%=link_to "Annuler", clients_path %>
+  </p>
+  <% end %>
+</div>

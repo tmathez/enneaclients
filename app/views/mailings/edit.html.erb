@@ -1,0 +1,14 @@
+<h1>Modifier le mailing <%=@mailing.nom %></h1>
+<div>
+<%= form_for @mailing do |f| %>
+  <%=render "form", :f => f %>
+  <div class="submit_edit_mailing">
+	<p>
+		<%=image_tag("delete.gif") %>
+		<%=link_to "Supprimer ce mailing", mailing_path(@mailing), :method => :delete, 
+		   :confirm => "Attention : en supprimant ce mailing vous supprimerez également tous les envois et tous les suivis associés à celui-ci, voulez-vous continuer ?" %>
+	</p>
+	<div><%=f.submit "Modifier" %> ou <%=link_to "Annuler", mailing_path(@mailing) %></div>
+  </div>
+<% end %>
+</div>

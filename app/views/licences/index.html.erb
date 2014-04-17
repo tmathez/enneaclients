@@ -1,0 +1,64 @@
+<h1 class="title_left" style="margin:0 0 10px 0">
+	Licences du client<br/>
+	<span class="light"><%=h @client.nom %></span>
+</h1>
+<h2 class="title_right" style="text-align:right">
+	<%=link_to "&larr; Retour".html_safe, client_path(@client) %>
+</h2>
+<div style="background:#F2F6F9;border:1px solid #B8C9D6;clear:both;padding:10px;font-size:1.2em;height:45px">
+	<div style="font-weight:bold;margin-bottom:8px">
+		<%=@client.enneascanning_ts ? "Ce client utilise le logiciel en terminal server. Il dispose de "+@client.nb_licences_ts.to_s+" licence(s)." : "Ce client utilise le logiciel en monoposte." %>
+	</div>
+	<div style="width:33%;float:left;border-top:1px dotted #CCC;padding-top:5px">
+		Licences : <%=@client.nb_licences.to_i %>
+	</div>
+	<div style="width:33%;float:left;text-align:center;color:red;border-top:1px dotted #CCC;padding-top:5px">
+		Utilisées : <%=@currents.length %>
+	</div>
+	<div style="width:33%;float:left;text-align:right;color:green;border-top:1px dotted #CCC;padding-top:5px">
+		Disponibles : <%=@client.nb_licences.to_i - @currents.length %>
+	</div>
+</div>
+<div class="show_client" style="border-bottom:0;padding:10px;font-size:1.2em">
+	<table>
+		<thead>
+			<tr><th style="width:95%">Id unique des clients</th><th style="width:5%"></th></tr>
+		</thead>
+		<tbody>
+		<% for licence in @currents %>
+			<tr>
+				<td style="border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;border-right:0px"><%=licence.poste_id %></td>
+				<td style="border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;border-right:0px;text-align:right">
+					<%= link_to '<img src="/images/delete.gif" title="Supprimer" />'.html_safe, client_licence_path(@client,licence), :confirm => 'Êtes-vous sûr?', :method => :delete %>
+				</td>
+			</tr>
+		<% end %>
+		<% if @currents.length == 0 %>
+			<tr><td colspan="2" style="border-right:0;color:#AAA;text-align:center">Aucune licence utilisée / autorisée</td></tr>
+		<% end %>
+		</tbody>
+	</table>
+	<table style="margin-top:30px">
+		<thead>
+			<tr><th style="width:60%">Historique des tentatives de licences</th><th style="width:25%">Tentative le</th><th style="width:5%">Résultat</th></tr>
+		</thead>
+		<tbody>
+		<% for licence in @licences %>
+			<tr style="background-color:<%=licence.granted ? '#EAFCEA' : (licence.granted.nil? ? '#F5F5F5' : '#FCEAEA') %>">
+				<td style="border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;border-right:0px"><%=licence.poste_id %></td>
+				<td style="border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;border-right:0px">
+					<%=licence.date_licence.in_time_zone("Bern").strftime("Le %d.%m.%Y &agrave; %Hh%M").html_safe%>
+				</td>
+				<td style="border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;border-right:0px;text-align:center">
+					<%=image_tag((licence.granted ? "checked.png" : (licence.granted.nil? ? "info.png" : "error.png") ), :title => licence.message.to_s)  %>
+				</td>
+			</tr>
+		<% end %>
+		<% if @licences.length == 0 %>
+			<tr><td colspan="2" style="border-right:0;color:#AAA;text-align:center">Aucune tentative de licence effectuée</td></tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+<div>
+</div>

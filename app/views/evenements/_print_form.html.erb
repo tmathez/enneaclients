@@ -1,0 +1,34 @@
+<h1 style="border-bottom:1px dotted #CCC;padding-bottom:5px;margin-bottom:5px;height:25px">
+	Impression des &eacute;v&eacute;nements
+</h1>
+<div class="edit_event">
+  <%=form_tag "/evenements/print", :method => :get do %>
+  <%=hidden_field_tag "client_id", params[:client_id] %>
+  <div>
+  	  <p style="margin-bottom:15px">
+	  	<label style="display:block;float:left;width:50%">Responsable</label><%=select_tag "responsable", options_from_collection_for_select(@responsables,"id","prenom"), :include_blank => true, :style => "width:50%" %>
+	  	<label style="display:block;float:left;width:50%;margin-top:5px">En attente / r&eacute;solus</label>
+	  	<div style="display:block;float:left;width:50%;margin-top:-10px">
+	  		<%=select_tag "statut", "<option value='false'>En attente</option><option value='true'>Résolus</option>".html_safe, :include_blank => true, :style => "width:100%" %>
+        </div>
+        <label style="display:block;float:left;width:50%;margin-top:5px;font-size:1.2em">Concerne</label>
+	  	<div style="display:block;float:left;width:50%;margin-top:5px">
+	  		<%=select_tag "tag_id", options_from_collection_for_select(@tags,"id","name"), :include_blank => true, :style => "width:100%" %>
+        </div>
+	  	<label style="display:block;float:left;width:50%;margin-top:5px;font-size:1.2em">Dates</label>
+	  	<div style="display:block;float:left;width:50%;margin-top:5px">
+		  	<%= date_field "date_du", nil, nil, :style => "width:43%", :placeholder => "Du" %>
+		  	<%= date_field "date_au", nil, nil, :style => "width:43%", :placeholder => "Au" %>
+	  	</div>
+		<label style="display:block;float:left;width:56%;margin-top:5px;font-size:1.2em">Solution</label>
+	  	<div style="display:block;float:left;width:44%;margin-top:5px;font-size:1.2em">
+		  	<%= check_box_tag "solution", "", true, :style => "display:inline;background:blue;width:20px;height:20px;margin-top:105px;margin-left:24%" %> Afficher
+	  	</div>
+	  </p>
+  </div>
+  <hr/>
+  <p class="footer">
+    <%= submit_tag 'Imprimer' %> ou <%=link_to "Annuler", params[:from_client]=="true" ? client_path(evenement.client.id) : evenements_path %>
+  </p>
+  <% end %>
+</div>

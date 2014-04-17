@@ -1,0 +1,11 @@
+<h1>R&eacute;sum&eacute; du <%=params[:date_email] %> </h1>
+<div id="textilized" style="font-size:1.2em">
+	<%=RedCloth.new(get_email(@evenements)).to_html.html_safe %>
+</div>
+<p style="text-align:right">[ <%=link_to "Actualiser l'aperçu", "#", :id => "refresh_email_preview" %> ]</p>
+<%= form_tag '/evenements/email', :method => :get do %>
+	<%=hidden_field_tag :sujet, "Résumé du #{params[:date_email]}" %><%=hidden_field_tag :responsable_id, params[:responsable_id] %>
+	<%=text_area_tag :content, get_email(@evenements), :style => "width:100%;margin-top:10px;height:400px" %>
+	
+	<%=submit_tag "Envoyer l'email" %> 
+<% end %>

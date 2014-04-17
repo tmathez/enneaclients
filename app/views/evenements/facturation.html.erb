@@ -1,0 +1,24 @@
+<h1>Evenements &agrave; facturer au <%=Date.today.strftime("%d.%m.%Y")%></h1>
+<h3 class="pending_title billing_title" style="width:50%;float:left">A facturer <span id="count_facturer">&nbsp;&nbsp;CHF <%=format_number(@facturer.sum("heures * tarif"), "'") %>&nbsp;&nbsp;</span></h3>
+<p class="pending_title" style="width:46%;float:left;text-align:right;height:20px;padding-top:10px;background-image:none">
+	<%=link_to '<img src="/images/print.png" id="print_events"/>'.html_safe, { :controller => "evenements", :action => "print_facturation" }, :remote => true %>
+</p>
+<table>
+	<tbody id="facturer_evenements" class="factures">
+		<% for evenement in @facturer %>
+			<%=render "facture", :evenement => evenement %>
+		<% end %>
+	</tbody>
+</table>
+<h3 class="solved_title">Factur&eacute;es <span id="count_factures">&nbsp;&nbsp;CHF <%=format_number(@factures.sum("heures * tarif"), "'") %>&nbsp;&nbsp;</span></h3>
+<table>
+	<tbody id="factures_evenements" class="factures">
+		<% for evenement in @factures %>
+			<%=render "facture", :evenement => evenement %>
+		<% end %>
+	</tbody>
+</table>
+
+<div id="overlay"></div>
+<div id="facturer" style="background:#FFF;border:2px solid #EEE;padding:20px;display:none"></div>
+<div id="print_form" style="background:#FFF;border:2px solid #EEE;padding:10px"></div>

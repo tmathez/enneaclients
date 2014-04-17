@@ -1,0 +1,47 @@
+<%=form_for @suivi do |f| %>
+<div class="general" style="border-bottom:0">
+	<%=f.hidden_field :client_id %>
+	<p style="width:25%;float:left">
+		<%= f.label :mailing_id, "Mailing concerné".html_safe %><br />
+		<%= f.select :mailing_id, Mailing.order("nom").collect {|m| [m.nom,m.id] }, { :include_blank => true }, { :style => "width:98%" } %>
+	</p>
+	<p style="width:7%;float:left">
+		<%= f.label :date_suivi, "Date du contact" %><br />
+		<%= f.text_field :date_suivi, :style => "width:85%" %>
+	</p>
+	<p style="width:50%;float:left">
+		<%= f.label :contact, "Personne de contact" %><br />
+		<%= f.text_field :contact_titre, :value => @suivi.client.titre, :style => "width:15%", :placeholder => "Titre" %>
+		<%= f.text_field :contact_prenom, :value => @suivi.client.contact_nom, :style => "width:38%", :placeholder => "Prénom" %>
+		<%= f.text_field :contact_nom, :value => @suivi.client.contact_prenom, :style => "width:40%", :placeholder => "Nom" %>
+	</p>
+	<p style="width:15%;float:left">
+		<%= f.label :etat_id, "Résultat de l'appel" %><br />
+		<%= f.select :etat_id, Etat.order('id').where("id > 1").collect {|e| [e.description,e.id] }, :style => "width:90%" %>
+	</p>
+	<p style="width:8%;float:left">
+		<%= f.label :date_suivi, "Date du contact" %><br />
+		<%= f.text_field :date_suivi, :style => "width:85%" %>
+	</p>
+</div>
+<div class="remarques">
+	<p>
+		<%= f.label :commentaire, "Commentaire" %> <br/>
+		<%= f.text_area :commentaire %>
+	</p>
+	</div>
+	<hr/>
+	<p class="footer">
+		<%= f.submit 'Ajouter' %> ou <%=link_to "Annuler", client_path(@suivi.client, :page => "suivis") %>
+	</p>
+<% end %>
+<% if !@last_suivis.nil? %>
+	<h3>Détail des 3 derniers contacts avec ce client pour ce mailing</h3>
+	<% for suivi in @last_suivis %>
+  	<div>
+  		<p><%=suivi.date_suivi %></p>
+  		<p><%=suivi.contact %></p>
+  		<p><%=suivi.commentaire %></p>
+  	</div>
+	<% end %>
+<% end %>

@@ -1,0 +1,193 @@
+<% content_for :align do %>
+  style="margin:0;max-width:3000px;width:80%"
+<% end %>
+
+<%=form_for @offre do |f| %>
+	
+	<div id="show_adresse_client_list">
+		<div></div>
+		<div></div>
+		<%=f.label :client_id, "Client existant" %>
+		<%=f.select :client_id, Client.order("nom").collect {|c| [c.nom, c.id]}, { :include_blank => true } %>
+	</div>
+	<!-- INFORMATIONS GENERALES D'ADRESSES ETC. -->
+	<div id="offre_informations">
+		<div><%=link_to "&larr; Retour".html_safe, offres_path %></div>
+		<div id="offre_adresse">
+			<div>
+				<%=f.label :client_nom, "Nom" %><br/>
+				<%=f.text_field :client_nom, :style => "width:90%", :value => value_for_record(@offre,"nom","client_nom") %>
+				<%=image_tag("search.png", :id => "change_adresse_offre") %>
+			</div>
+			<div>
+				<%=f.label :client_reference, "Pers. référence" %>
+				<%=f.text_field :client_reference, :value => (@offre.new_record? ? (@offre.client_id.nil? ? nil : @offre.client.contact) : @offre.client_reference) %>
+			</div>
+			<div>
+				<%=f.label :client_adresse, "Adresse"  %>
+				<%=f.text_field :client_adresse, :value => value_for_record(@offre,"rue","client_adresse") %>
+			</div>
+			<div>
+				<%=f.label :client_npa, "NPA / Lieu" %><br/>
+				<%=f.text_field :client_npa, :value => value_for_record(@offre,"npa","client_npa") %> 
+				<%=f.text_field :client_lieu, :value => value_for_record(@offre,"lieu","client_lieu")  %>
+			</div>
+			<div>
+				<%=f.label :client_tel, "Téléphone", :value => value_for_record(@offre,"tel","client_tel") %><br/>
+				<%=f.text_field :client_tel %>
+			</div>
+			<div>
+				<%=f.label :date_offre, "Date de l'offre" %><br/>
+				<%=f.text_field :date_offre, :value => f.object.date_offre.strftime("%d.%m.%Y"), :class => "date_field" %>
+			</div>
+			<div>
+				<%=f.label :date_valide, "Validité de l'offre" %><br/>
+				<%=f.text_field :date_valide, :value => f.object.date_valide.strftime("%d.%m.%Y"), :class => "date_field" %>
+			</div>
+			<div>
+				<%=f.label :societe_id, "Société" %><br/>
+				<%=f.select :societe_id, Societe.all.collect {|s| [ s.nom, s.id ] } %>
+			</div>
+		</div>
+	</div>
+	<!-- TITRE -->
+	<p class="offre_titre"><%=f.text_field :texte_string %></p>
+	<!-- MODULES -->
+	<h3>Modules int&eacute;gr&eacute;s dans l'offre</h3>
+	<div id="offre_modules" class="offre_elements">
+		<%=f.fields_for :offres_modules do |of| %>
+		<div class="module offre_element">
+			<div>
+				<%=check_box_tag "selected", nil, @offre.offres_modules.where(:module_id => of.object.module_id).length > 0 %>
+				<%=of.hidden_field :module_id, :value => ""  %>
+				<%=of.hidden_field :_destroy  %>
+			</div>
+			<div><%=of.text_field :nom %></div>
+			<div><%=of.text_area :description %></div>
+			<div><%=of.text_field :prix, :value => format_number(of.object.prix,""), :class => "numeric_field" %></div>
+			<input type="hidden" value="<%=of.object.module_id %>" />
+		</div>
+		<% end %>
+	</div>
+	<div id="offre_modules_total" style="border-top:2px solid #000;margin-top:0px;padding-top:10px">
+		<div>Montant total HT pour une licence de base</div>
+		<div><input type="text" readonly="true" id="total_modules" /></div>
+	</div>
+	<div id="offre_modules_licences">
+		<div>
+			Prix pour <%=f.text_field :licences %> licence(s) suppl&eacute;mentaire(s) 
+			<span style="font-size:0.8em"> / Montant de la licence de base différent du montant de l'offre : </span> 
+			<%=f.text_field :licence_pourcent, :class => "numeric_field", :style => "width:20%" %>
+			<br/>
+			<span style="color:#888;font-size:0.8em">CHF <span id="total_licence">0.00</span>, soit 20% du prix de la licence de base</span><br/>
+		</div>
+		<div><input type="text" readonly="true" id="total_licences" /></div>
+	</div>
+	<div id="offre_modules_rabais">
+		<div><%=f.text_field :texte_rabais, :style => "width:70%" %> <%=f.text_field :rabais_logiciel, :class => "numeric_field" %>%</div>
+		<div><input type="text" readonly="true" id="total_rabais" /></div>
+	</div>
+	<div id="offre_modules_total_final">
+		<div>Montant total HT des logiciels</div>
+		<div><input type="text" readonly="true" id="total_final_modules" /></div>
+	</div>
+	<!-- SERVICES -->
+	<hr />
+	<h3>Services</h3>
+	<div id="offre_services" class="offre_elements">
+		<%=f.fields_for :offres_services do |os| %>
+		<div class="service offre_element">
+			<div>
+				<%=check_box_tag "selected", nil, @offre.offres_services.where(:service_id => os.object.service_id).length > 0 %>
+				<%=os.hidden_field :service_id, :value => "" %>
+				<%=os.hidden_field :_destroy  %>
+			</div>
+			<div><%=os.text_area :description %></div>
+			<div>Jours : <%=os.text_field :nb_jours, :value => format_number(os.object.nb_jours,""), :class => "numeric_field nb_jours", :style => "width:40px" %></div>
+			<div>&agrave;<%=os.text_field :prix_jour, :value => format_number(os.object.prix_jour,""), :class => "numeric_field", :style => "width:80px" %></div>
+			<div><input type="text" readonly="true" id="total_service_<%=os.object.service_id %>" value="0.00" /></div>
+			<input type="hidden" value="<%=os.object.service_id %>" />
+		</div>
+		<% end %>
+	</div>
+	<div id="offre_services_total_final">
+		<div>Montant HT des prestations de services</div>
+		<div><input type="text" readonly="true" id="total_final_services" /></div>
+	</div>
+		
+	<!-- CATALOGUES -->
+	<hr />
+	<h3>Donn&eacute;es SSE 2012</h3>
+	<div id="offre_catalogues" class="offre_elements">
+		<%=f.fields_for :offres_catalogues do |oc| %>
+		<div class="catalogue offre_element">
+			<div>
+				<%=check_box_tag "selected", nil, @offre.offres_catalogues.where(:catalogue_id => oc.object.catalogue_id).length > 0 %>
+				<%=oc.hidden_field :catalogue_id, :value => "" %>
+				<%=oc.hidden_field :_destroy  %>
+			</div>
+			<div><%=oc.text_field :nom, :value => oc.object.nom.to_s %></div>
+			<div><%=(oc.object.catalogue.analyses ? "avec analyses" : (oc.object.catalogue.analyses.nil? ? "" : "sans analyses")) %></div>
+			<div><%=(oc.object.catalogue.membre ? "membre SSE" : "non membre SSE") %></div>
+			<div><%=oc.text_field :prix, :value => format_number(oc.object.prix,""), :class => "numeric_field" %></div>
+			<input type="hidden" value="<%=oc.object.catalogue_id %>" />
+		</div>
+		<% end %>
+	</div>
+	
+	<!-- CONTRAT -->
+	<hr />
+	<h3>Contrat de maintenance</h3>
+	<div id="offre_modules" class="offre_elements">
+		<div class="module offre_element">
+			<div style="width:0%">&nbsp;</div>
+			<div style="width:30%">
+				<%=f.text_field :contrat_nom %>
+			</div>
+			<div>
+				<%=f.text_area :contrat_description %>
+			</div>
+			<div><%=f.text_field :contrat, :value => format_number(f.object.contrat,""), :class => "numeric_field" %></div>
+		</div>
+	</div>
+	<!-- MISE EN PLACE ET TEXTE FINAL -->
+	<hr />
+	<h3>Mise en place</h3>
+	<div id="offre_mise_en_place">
+		<div>Date d'installation : <%=f.text_field :date_installation, :style => "width:20%", :class => "date_field"  %></div>
+		<div>
+			<%=f.text_area :texte_installation %>
+		</div>
+		<div>
+			<%=f.text_area :texte_final %>
+		</div>
+	</div>
+	<!-- OUTILS : IMPRESSION, SAUVEGARDE -->
+	<div id="offre_submit">
+		<div><%=f.submit "Enregistrer" %></div>
+	</div>
+<% end %>
+<!-- RECAPITULATION POUR INFO -->
+<div id="mini_recapitulation">
+	<div class="titre">R&eacute;capitulation</div>
+	<div class="recap">
+		<div>Modules</div>
+		<div><input type="text" id="total_recap_modules" value="0.00" readonly="true"/></div>
+	</div>
+	<div class="recap">
+		<div>Services</div>
+		<div><input type="text" id="total_recap_services" value="0.00" readonly="true"/></div>
+	</div>
+	<div class="recap total">
+		<div>Total HT</div>
+		<div><input type="text" id="total_recap_ht" value="0.00" readonly="true" /></div>
+	</div>
+	<div class="recap">
+		<div>TVA 8.0%</div>
+		<div><input type="text" id="total_recap_tva" value="0.00" readonly="true"/></div>
+	</div>
+	<div class="recap total">
+		<div>Total TTC</div>
+		<div><input type="text" id="total_recap_ttc" value="0.00" readonly="true"/></div>
+	</div>
+</div>
